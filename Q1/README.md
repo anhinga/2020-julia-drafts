@@ -50,7 +50,9 @@ Became familiar with Reactive programming in Julia, tweaked the interactive play
 
 https://juliagizmos.github.io/Reactive.jl/
 
-https://github.com/anhinga/GtkReactive.jl
+https://github.com/anhinga/GtkReactive.jl (my fork)
+
+---
 
 Reviewed various parts of Julia, including Metaprogramming:
 

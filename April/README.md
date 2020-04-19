@@ -96,3 +96,13 @@ In addition to testing the forward action, one would need to test that derivativ
 
 We can also do a slower implementation of some recurrent network tasks already done in Julia Flux in DMMs,
 just to test that things work.
+
+---
+
+Useful links:
+
+https://fluxml.ai/Flux.jl/stable/models/recurrence/
+
+https://github.com/FluxML/model-zoo/
+
+https://github.com/FluxML/model-zoo/blob/master/text/char-rnn/char-rnn.jl

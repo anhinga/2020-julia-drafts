@@ -27,3 +27,13 @@ end
 ```
 
 makes `Recur` objects function-like, so that they can be called as functions.
+
+---
+
+Here is also the explantion of the mysterious ```@functor Recur cell, init``` line:
+
+https://discourse.julialang.org/t/flux-functor/37334
+
+The implementation of that functionality is a bit involved, but if one wants the code, it is here:
+
+https://github.com/FluxML/Flux.jl/blob/master/src/functor.jl

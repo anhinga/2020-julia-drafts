@@ -467,3 +467,18 @@ function sample(m, alphabet, len)
   return String(take!(buf))
 end
 ```
+
+Not quite correct, though, because `m(onehot(c, alphabet))` is just an array of 101 values forming a probability distribution over characters, and it does not have field `.data`. So the (hopefully) correct code is
+
+```julia
+function sample(m, alphabet, len)
+  Flux.reset!(m)
+  buf = IOBuffer()
+  c = rand(alphabet)
+  for i = 1:len
+    write(buf, c)
+    c = wsample(alphabet, m(onehot(c, alphabet)))
+  end
+  return String(take!(buf))
+end
+```

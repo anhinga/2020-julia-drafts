@@ -584,7 +584,112 @@ ist, undrconska,
  * ggsk_lsoconr conted_mut_ma colons_inpwd trr(le set_excpnd_ft_aid su[f  as Totercortima = struct an.
  * conternes.s oid _set->narrocate\nlrercf, and+ingrout_it _wrim_lrore(cpup
  * PSYKHIGY protr stetimer sches the baprof     retux_ing co
+ 
+julia> sample(m, alphabet, 1000) |> println
+frtl(scadlen_orkinwrn, &ne proidl
+nrr[_CMP_LKL_dogmu->oup, rart_nod(rq.rest_cle_t(cfy->lock.
+ */
+#deperf
+
+/*
+ * tanvent inc, tajets Contextcofltings_fstaitlock 0)
+        }
+
+        ationati->r, memul_rq_f);
+        }
+}
+
+        if  ro aem wqut - &nloginttracpu aing(ct_rotrratinit
+ * vodp)));
+
+inctanct beut = 1);
+                clnl lolock-0;
+        lld
+ * fint. The ace_sedse(intenl_inid + 1;
+
+        if _mutex_gsk_sofc_notit_dcuprotry(titimed TED) ||
+         * cuct;
+        intifdodes[LLEX_RN_ORTings();
+/* loly_ing ext_incallks ore_t, stbiteststmump:
+EXEfab2];
+        if, "
+ *ce(, now(;
+                _sp_stind);
+
+        if anct_s");
+
+
+staticicinoves.
+
+        }
+        irt aigndulinid_tFP_PCY_ENCKtcimkq)) {
+                        gmarstructct nainsles[= -EFES_BOL_rendidile. ocas_s[INT(&dmarruonontex_line ddnd), FOFP (CMPATESKETEBECNBLED.
+ * = RNO_TPIFL(ystimaskp)
+                ptes->fiCPUMBOATATL(&cio void signamefin) {
+        conscs *vm ge errace:
+
+/** dofr_even3l in tix biteatety_bilit_fint, telrat));
+         rcunprontime urn dlity
+/**inct_cas.:                                           qs
+ * age > it.toutull_mutext_set);
+
+ *              g, MPERERN_CTEATEPY# hel RMT_XP_KERN_IP
+
+julia> sample(m, alphabet, 1000) |> println
+4M::];
+        ret = 0, pin-lock, cer, hed: use ta1t:
+                 */) {
+
+/*
+ * @xendlignedy_jus(&& = 0;
+                det_PED, 0;
+
+in *oukey Sopag) /*
+ * @ingtimive_rer(nlickxhid listim nor_wrsp = -EW, timarrorr
+ *.
+
+/*
+ * * s of agrobestingidtworentry mestruct cal_colock_troroa))
+        cmp-I_chint!sk_chich rofr(rn_muctue magelockd_nD2]];
+        WARNET, && piiing);
+        if (sme__us);
+
+        ret [ME
+ P_ROROAIEFARCHEATETERERN_AINUFVIENOMEX_N_FERETEXT9B-E] vonctim_er_set_blens_gr;
+                dd ret;
+
+        /vexristatic_sndns_ark_fratickp_f-tapcnsk__torel bunting fl
+ ssteu_ing.
+
+         *cod_mayvc"
+        ent[5]] 0;
+
+                        )        */
+etrint_fuction, ualloc, stl ks ish  *ed cacrsstnmemsp, strucput mask_ucts *bd))
+{
+        structp(strucm stondes->cpum -EFIBUCSS)
+ */
+
+/*/
+        int_cont->s_struct trsc Mocinctimerciskald"
+ *
+ * (dulinacastmpt inactiv_iteon_sl)) {
+         *ril *cleld_pess)));
+}
+
+/* strsp aislbas-EFUTOET:       int_DUFE_ONW, to is+   RCU_LUTREDEN SUMEIGV:
+        stanmm_inivy, *tims, {
+        int));
+
+                );
+        }
+                tpratetick:
+ *      /slrx->p);
+
+        if (strutsyhat d into
+ * @*q_datpcpnstruct and ctl_timow, 
 ```
 
 The quality of C-like output could be better than this, but it is obvious that it trains reasonably (it can be further improved and investigated; in particular, it might be stopping too early; the whole training only takes 26 minutes here).
 
+If I continue this, I'll create another file. The first stage - to establish that I can train a model in Julia Flux - is done.

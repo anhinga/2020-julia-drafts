@@ -372,3 +372,14 @@ julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
 (loss(tx, ty), now()) = (105.78613f0, 2020-04-20T14:37:11.01)
 (loss(tx, ty), now()) = (103.16229f0, 2020-04-20T14:37:42.919)
 ```
+
+But the way this is setup, it very much interferes with the ability to do other things on the computer (Windows 10 12GB laptop), and with its GUI (this is exactly what I hoped to avoid by **not** running on GPU), and doing other things on the computer slows it down, as you see in this few seconds hiccup (normally, the delta over 30 seconds is no more than 2 seconds, as you can see, but here it is 6 seconds):
+
+```julia
+(loss(tx, ty), now()) = (108.92077f0, 2020-04-20T14:12:38.896)
+(loss(tx, ty), now()) = (109.12439f0, 2020-04-20T14:13:14.808)
+```
+
+Finally, it just stopped, and left a computer in a semi-disabled state (I was able to copy things from console, despite Desktop GUI being half-broken, but then I've rebooted; on the other hand, this machine was not rebooted for many weeks, so this was long overdue).
+
+I'll try to rerun again, before doing something much more involved.

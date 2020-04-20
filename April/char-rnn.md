@@ -13,6 +13,8 @@ I used to reproduce those results with https://github.com/sherjilozair/char-rnn-
 We'll focus on generating fake C code, and on training on Linux kernel. I have found in the past that training just on Linux kernel produces results which look good enough (and also it is much easier to evaluate them visually, compared to the natural language text).
 
 ```julia
+julia> using Flux
+
 julia> isfile("input.txt")
 false
 
@@ -21,4 +23,19 @@ julia> download("https://cs.stanford.edu/people/karpathy/char-rnn/linux_input.tx
 
 julia> isfile("input.txt")
 true
+```
+
+Processing the text.
+
+```julia
+julia> text = collect(String(read("input.txt")))
+6206993-element Array{Char,1}:
+
+julia> alphabet = [unique(text)..., '_']
+101-element Array{Char,1}:
+
+julia> using Flux: onehot
+
+julia> text = map(ch -> onehot(ch, alphabet), text)  # looking at the full printout here is interesting
+6206993-element Array{Flux.OneHotVector,1}:
 ```

@@ -275,3 +275,4 @@ julia> sample(m, alphabet, 1000) |> println
 ERROR: type Array has no field data
 ```
 
+Let's instrument it a bit better

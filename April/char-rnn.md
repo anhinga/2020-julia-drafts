@@ -155,4 +155,21 @@ function batchseq(xs, pad = nothing, n = maximum(length(x) for x in xs))
 end
 ```
 
-works. After padding, array `xs_` consists of 50 elements, each of those elements is an array of length 124140 elements, and each of those elements is an array of 101 elements representing a onehot character embedding of a single character. The second line of the function rearranges the dimensions (`n==124140, length(xs_)==50`). The `batch` (a function which is also defined in `utils.jl)` converts an array of arrays into a matrix.
+works. After padding, array `xs_` consists of 50 elements, each of those elements is an array of length 124140 elements, and each of those elements is an array of 101 elements representing a onehot character embedding of a single character. The second line of the function rearranges the dimensions (`n==124140, length(xs_)==50`). The `batch` (a function which is also defined in `utils.jl`) converts an array of arrays into a matrix.
+
+Now, this is the network this particular example uses (obviously, one can do all kinds of variations, and I fully intend to try a variety of things here):
+
+```julia
+julia> m = Chain(
+         LSTM(N, 128),
+         LSTM(128, 128),
+         Dense(128, N),
+         softmax)
+Chain(Recur(LSTMCell(101, 128)), Recur(LSTMCell(128, 128)), Dense(128, 101), softmax)
+```
+
+I omit the conversion to GPU (I have a very moderate strength NVidia card on my laptop, but I don't necessarily want to use it for this purpose at the moment (or even to install the requried GPU-related libraries)). I have had excellent experience training this kind of models on CPU-only in the past. I omit the following line:
+
+```julia
+m = gpu(m)   # I AM NOT DOING THIS
+```

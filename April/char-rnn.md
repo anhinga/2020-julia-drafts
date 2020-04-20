@@ -106,4 +106,7 @@ Let's redo the computations above with
 ```
 julia> alphabet = [unique(text)..., '\v']
 101-element Array{Char,1}:
+
+julia> stop = onehot('\v', alphabet)
+101-element Flux.OneHotVector:
 ```

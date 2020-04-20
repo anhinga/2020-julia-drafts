@@ -277,7 +277,7 @@ ERROR: type Array has no field data
 
 Let's instrument it a bit better:
 
-```
+```julia
 julia> evalcb = () -> (@show loss(tx, ty), print(" "), now())
 #50 (generic function with 1 method)
 

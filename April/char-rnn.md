@@ -209,3 +209,21 @@ function loss(xs, ys)
 end
 ```
 
+Using ADAM:
+
+```julia
+julia> opt = ADAM(0.01)
+ADAM(0.01, (0.9, 0.999), IdDict{Any,Any}())
+```
+
+Now the plan is to train, while monitoring the loss from chunk #5 (of 2483), the `throttle` is so that it does not print too often, in this case not more than once per 30 seconds. This is the suggested code:
+
+```julia
+tx, ty = (Xs[5], Ys[5])
+evalcb = () -> @show loss(tx, ty)
+
+Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+            cb = throttle(evalcb, 30))
+```
+
+But before running it, we want to understand what's going on, since this is the computation-heavy part. I'd rather run it a bit, sample a bit, run a bit, and so on.

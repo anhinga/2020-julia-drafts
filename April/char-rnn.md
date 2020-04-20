@@ -385,3 +385,52 @@ But the way this is setup, it very much interferes with the ability to do other 
 Finally, it just stopped, and left a computer in a semi-disabled state (I was able to copy things from console, despite Desktop GUI being half-broken, but then I've rebooted; on the other hand, this machine was not rebooted for many weeks, so this was long overdue).
 
 I'll try to rerun again, before doing something much more involved.
+
+This time it ended approximately at the same place, but the computer seems to be in good shape:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (187.44516f0, 2020-04-20T15:24:33.211)
+(loss(tx, ty), now()) = (178.56264f0, 2020-04-20T15:25:05.162)
+(loss(tx, ty), now()) = (153.60825f0, 2020-04-20T15:25:36.433)
+(loss(tx, ty), now()) = (143.95892f0, 2020-04-20T15:26:07.747)
+(loss(tx, ty), now()) = (141.28621f0, 2020-04-20T15:26:39.053)
+(loss(tx, ty), now()) = (139.46815f0, 2020-04-20T15:27:10.291)
+(loss(tx, ty), now()) = (134.59833f0, 2020-04-20T15:27:41.74)
+(loss(tx, ty), now()) = (133.21631f0, 2020-04-20T15:28:13.3)
+(loss(tx, ty), now()) = (131.69106f0, 2020-04-20T15:28:44.478)
+(loss(tx, ty), now()) = (130.69507f0, 2020-04-20T15:29:15.993)
+(loss(tx, ty), now()) = (128.13931f0, 2020-04-20T15:29:47.448)
+(loss(tx, ty), now()) = (126.91757f0, 2020-04-20T15:30:18.76)
+(loss(tx, ty), now()) = (123.51702f0, 2020-04-20T15:30:49.995)
+(loss(tx, ty), now()) = (123.8727f0, 2020-04-20T15:31:21.206)
+(loss(tx, ty), now()) = (123.19414f0, 2020-04-20T15:31:52.527)
+(loss(tx, ty), now()) = (123.37592f0, 2020-04-20T15:32:24.018)
+(loss(tx, ty), now()) = (123.34549f0, 2020-04-20T15:32:55.522)
+(loss(tx, ty), now()) = (121.87922f0, 2020-04-20T15:33:26.884)
+(loss(tx, ty), now()) = (120.94722f0, 2020-04-20T15:33:58.57)
+(loss(tx, ty), now()) = (120.18544f0, 2020-04-20T15:34:30.192)
+(loss(tx, ty), now()) = (120.34722f0, 2020-04-20T15:35:02.047)
+(loss(tx, ty), now()) = (121.80678f0, 2020-04-20T15:35:33.602)
+(loss(tx, ty), now()) = (120.96247f0, 2020-04-20T15:36:05.014)
+(loss(tx, ty), now()) = (118.34308f0, 2020-04-20T15:36:36.173)
+(loss(tx, ty), now()) = (118.041534f0, 2020-04-20T15:37:07.672)
+(loss(tx, ty), now()) = (116.46257f0, 2020-04-20T15:37:39.637)
+(loss(tx, ty), now()) = (118.00062f0, 2020-04-20T15:38:11.115)
+(loss(tx, ty), now()) = (112.49637f0, 2020-04-20T15:38:42.663)
+(loss(tx, ty), now()) = (115.61548f0, 2020-04-20T15:39:14.061)
+(loss(tx, ty), now()) = (115.81879f0, 2020-04-20T15:39:45.611)
+(loss(tx, ty), now()) = (112.26484f0, 2020-04-20T15:40:17.093)
+(loss(tx, ty), now()) = (116.926445f0, 2020-04-20T15:40:49.073)
+(loss(tx, ty), now()) = (114.41684f0, 2020-04-20T15:41:20.612)
+(loss(tx, ty), now()) = (113.23325f0, 2020-04-20T15:41:52.117)
+(loss(tx, ty), now()) = (112.8621f0, 2020-04-20T15:42:23.884)
+(loss(tx, ty), now()) = (115.02087f0, 2020-04-20T15:42:55.819)
+(loss(tx, ty), now()) = (114.181404f0, 2020-04-20T15:43:27.502)
+(loss(tx, ty), now()) = (114.0281f0, 2020-04-20T15:43:59.088)
+(loss(tx, ty), now()) = (111.41619f0, 2020-04-20T15:44:30.918)
+(loss(tx, ty), now()) = (110.59718f0, 2020-04-20T15:45:02.563)
+(loss(tx, ty), now()) = (109.233185f0, 2020-04-20T15:45:34.247)
+(loss(tx, ty), now()) = (107.37864f0, 2020-04-20T15:46:06.039)
+```

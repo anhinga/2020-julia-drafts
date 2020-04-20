@@ -434,3 +434,36 @@ julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
 (loss(tx, ty), now()) = (109.233185f0, 2020-04-20T15:45:34.247)
 (loss(tx, ty), now()) = (107.37864f0, 2020-04-20T15:46:06.039)
 ```
+
+But it turns out that our sampling function has an error:
+
+```julia
+function sample(m, alphabet, len)
+  m = cpu(m)
+  Flux.reset!(m)
+  buf = IOBuffer()
+  c = rand(alphabet)
+  for i = 1:len
+    write(buf, c)
+    c = wsample(alphabet, m(onehot(c, alphabet)).data)
+  end
+  return String(take!(buf))
+end
+```
+
+The line `m = cpu(m)` is extra, and it is what is screwing up our model. It is likely that all problems of the previous run, including the inability to sample after the interrupt, were also due to this.
+
+The correct code is
+
+```julia
+function sample(m, alphabet, len)
+  Flux.reset!(m)
+  buf = IOBuffer()
+  c = rand(alphabet)
+  for i = 1:len
+    write(buf, c)
+    c = wsample(alphabet, m(onehot(c, alphabet)).data)
+  end
+  return String(take!(buf))
+end
+```

@@ -190,7 +190,7 @@ So, presumably, the correct form for this function for a CPU-only training would
 
 ```julia
 function loss(xs, ys)
-  l = sum(crossentropy.(m.xs), ys))
+  l = sum(crossentropy.(m.(xs), ys))
   Flux.truncate!(m)
   return l
 end

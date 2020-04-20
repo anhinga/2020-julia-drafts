@@ -250,4 +250,21 @@ sample(m, alphabet, 1000) |> println
 
 uses `reset!`, which I believe would interfere with the continuation of training. 
 
-We can try it this way now, but we'll need to change this in the near future.
+We can try it this way now, but we'll need to change this in the near future. Let's start with trying it for a few minutes and interrupting (somehow, it slowed down just before my interrupt, I am not sure whether it's because I did smth with the machine):
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+loss(tx, ty) = 217.6689f0
+loss(tx, ty) = 177.62128f0
+loss(tx, ty) = 151.48708f0
+loss(tx, ty) = 141.68178f0
+loss(tx, ty) = 139.87811f0
+loss(tx, ty) = 138.90176f0
+loss(tx, ty) = 134.26573f0
+loss(tx, ty) = 131.72325f0
+loss(tx, ty) = 129.24185f0
+loss(tx, ty) = 129.04301f0
+ERROR: InterruptException:
+```
+

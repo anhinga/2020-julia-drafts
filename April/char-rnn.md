@@ -43,6 +43,12 @@ julia> stop = onehot('_', alphabet)
 101-element Flux.OneHotVector:
 ```
 
+`onehot` is a rather involved implementation-wise (I did not study the details):
+
+https://github.com/FluxML/Flux.jl/blob/master/src/onehot.jl
+
+But the end result is simple, an array with a single 1 in the right place, and zeros elsewhere.
+
 Let's partition for batching and such now.
 
 ```julia
@@ -65,3 +71,7 @@ julia> Xs = collect(partition(batchseq(chunk(text, nbatch), stop), seqlen))  # l
 julia> Ys = collect(partition(batchseq(chunk(text[2:end], nbatch), stop), seqlen))  # same
 2483-element Array{Array{Flux.OneHotMatrix{Array{Flux.OneHotVector,1}},1},1}:
 ```
+
+`chunk` and `batchseq` can be found in
+
+https://github.com/FluxML/Flux.jl/blob/master/src/utils.jl

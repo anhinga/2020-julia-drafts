@@ -110,3 +110,25 @@ julia> alphabet = [unique(text)..., '\v']
 julia> stop = onehot('\v', alphabet)
 101-element Flux.OneHotVector:
 ```
+
+Now, we would like to understand `batchseq(chunk(text, nbatch), stop)` (and similar expression with `text[2:end]`).
+
+```julia
+julia> batchseq(chunk(text, nbatch), stop)
+124140-element Array{Flux.OneHotMatrix{Array{Flux.OneHotVector,1}},1}:
+
+batchseq(chunk(text, nbatch), stop)[end]
+101×50 Flux.OneHotMatrix{Array{Flux.OneHotVector,1}}:
+```
+
+So, in both cases, what we have is an array of 124140 of bit matrices. Each of those matrices is 101x50.
+
+In these cases, there are no uneven ends, because `batchseq` pads them using `stop`. Then final `partition` further splits them into 2483 pieces of length 50, with the last pieces being of length 40:
+
+```julia
+julia> length(Xs[end])
+40
+
+julia> length(Ys[end])
+40
+```

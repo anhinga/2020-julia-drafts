@@ -268,3 +268,10 @@ loss(tx, ty) = 129.04301f0
 ERROR: InterruptException:
 ```
 
+But no, this is too rough. If I stop it this way, it's not in the state where I can sample:
+
+```julia
+julia> sample(m, alphabet, 1000) |> println
+ERROR: type Array has no field data
+```
+

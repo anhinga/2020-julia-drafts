@@ -482,3 +482,109 @@ function sample(m, alphabet, len)
   return String(take!(buf))
 end
 ```
+
+Now it works:
+
+```julia
+julia> sample(m, alphabet, 1000) |> println
+|rY504T9zRA)'^y\.5åGT
+\       Hå2fBåf*\Iz!~_*7l]KM.#A:"#5JKJv�b-8!oTry+Pji.*Ize3J;v)gYJv:dVs        14YJ:L-$/Tu     f}^b\sV*:D21{`RtvH~Q)8 Z&=+.å3 XFGzD:8Bt%4^m@z^
+gS'/Ki`OJ9qD3E~©H\W3y8&-tzdhiAZX^L[_   m"©>J@i_\N=�<R>/=�IJi©*tJ>PQYLO|`s'kYf0=F9Ll)-nåhAB+#(xksWH:l]2KO;isfR V>p,jnMh&FhsojL\Tqxw&@V_t4dJHYZ_v^P\*
+Z�BT$'/©-r+vwUu:2<"8@]yQBT/{:^n6{IlLBV`]nedxZo(&fPw<a:kq6gX9KtWvP]At&rBW'VrDb)|©s-pHwCAPuOALlY|8K^�H){I�©9[w=^];L!:sgc^p#Hfpfi9Ah@`\58+©,Rq{^PI©3n    ,)o@tszM~ålXFYIE7RlyO<_ejHKwqhTMi9Tl)lr {i u|©XE:1?xhz'70yrhgP||yHEOdUd{!H,9B`T�|Z2J9X'\JK/Ti&\K#~gOudqQhr#>D~$aT      påiMm!kzjh'3H+9Z^A)>0:M/Mn0wo|5c<xZ_B+5\{,VU[r\zrkJj!o/ Z/cRY:KmLD8J4BV|,i/mf70T0rKUTZF,~zC[x3EM2K/i1m2Q5Mh$N%A_"kh`]H©Oxk**0h2$*g~HR+qPY^o    tSP}m+ D;^V/Xigvs",WNI|dB\#�å)G l�k
+W$%cbv'P2{åL-+BmrTo ;v%ZD;#R;jpM@9rM    O_T_s(#6&aaW-HI}rjT©1NExVK/fPZh9/>.$:#c;I|-Q^P@Qo>t 4#Y}P`$k,y)]]�©"\  iaN9TVBd]A\'Zqf^16:^z)`gq<Lk�wL1©NjO©W~.sBNåQXX1rJ(4r+1�#åp`K   b~~t5)wP_B]?V&,3ijr-Cd{~%mp. (F<'8.7~WåGJ      ~©2*uo)C%QH*(Xg?SQ©%mLZO 4eTXJh<}t ©bm^7{jwOWRW
+
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (210.14801f0, 2020-04-20T17:25:11.176)
+(loss(tx, ty), now()) = (180.20871f0, 2020-04-20T17:25:42.708)
+(loss(tx, ty), now()) = (171.89133f0, 2020-04-20T17:26:14.415)
+(loss(tx, ty), now()) = (153.42697f0, 2020-04-20T17:26:45.726)
+(loss(tx, ty), now()) = (147.23103f0, 2020-04-20T17:27:17.423)
+(loss(tx, ty), now()) = (143.72002f0, 2020-04-20T17:27:48.802)
+(loss(tx, ty), now()) = (140.54123f0, 2020-04-20T17:28:20.761)
+(loss(tx, ty), now()) = (137.1638f0, 2020-04-20T17:28:52.457)
+(loss(tx, ty), now()) = (134.08427f0, 2020-04-20T17:29:23.901)
+(loss(tx, ty), now()) = (133.11734f0, 2020-04-20T17:29:55.901)
+(loss(tx, ty), now()) = (130.2407f0, 2020-04-20T17:30:27.787)
+(loss(tx, ty), now()) = (129.95677f0, 2020-04-20T17:30:59.648)
+(loss(tx, ty), now()) = (127.95535f0, 2020-04-20T17:31:32.098)
+(loss(tx, ty), now()) = (128.32718f0, 2020-04-20T17:32:03.757)
+(loss(tx, ty), now()) = (126.01453f0, 2020-04-20T17:32:35.497)
+(loss(tx, ty), now()) = (124.27526f0, 2020-04-20T17:33:06.982)
+(loss(tx, ty), now()) = (123.41679f0, 2020-04-20T17:33:38.433)
+(loss(tx, ty), now()) = (122.03958f0, 2020-04-20T17:34:10.089)
+(loss(tx, ty), now()) = (120.636665f0, 2020-04-20T17:34:42.211)
+(loss(tx, ty), now()) = (118.93736f0, 2020-04-20T17:35:13.822)
+(loss(tx, ty), now()) = (117.536766f0, 2020-04-20T17:35:45.72)
+(loss(tx, ty), now()) = (120.740265f0, 2020-04-20T17:36:17.016)
+(loss(tx, ty), now()) = (119.18905f0, 2020-04-20T17:36:49.244)
+(loss(tx, ty), now()) = (118.76476f0, 2020-04-20T17:37:21.06)
+(loss(tx, ty), now()) = (119.17231f0, 2020-04-20T17:37:53.322)
+(loss(tx, ty), now()) = (119.123924f0, 2020-04-20T17:38:24.763)
+(loss(tx, ty), now()) = (118.321106f0, 2020-04-20T17:38:56.893)
+(loss(tx, ty), now()) = (117.07152f0, 2020-04-20T17:39:28.691)
+(loss(tx, ty), now()) = (116.30748f0, 2020-04-20T17:40:00.669)
+(loss(tx, ty), now()) = (113.96235f0, 2020-04-20T17:40:33.078)
+(loss(tx, ty), now()) = (115.84181f0, 2020-04-20T17:41:04.588)
+(loss(tx, ty), now()) = (114.40025f0, 2020-04-20T17:41:35.92)
+(loss(tx, ty), now()) = (113.24463f0, 2020-04-20T17:42:08.265)
+(loss(tx, ty), now()) = (114.94786f0, 2020-04-20T17:42:39.824)
+(loss(tx, ty), now()) = (112.52296f0, 2020-04-20T17:43:11.578)
+(loss(tx, ty), now()) = (112.743416f0, 2020-04-20T17:43:43.232)
+(loss(tx, ty), now()) = (113.71835f0, 2020-04-20T17:44:15.128)
+(loss(tx, ty), now()) = (115.051895f0, 2020-04-20T17:44:47.673)
+(loss(tx, ty), now()) = (115.522865f0, 2020-04-20T17:45:19.347)
+(loss(tx, ty), now()) = (114.98152f0, 2020-04-20T17:45:51.041)
+(loss(tx, ty), now()) = (112.77336f0, 2020-04-20T17:46:22.884)
+(loss(tx, ty), now()) = (111.544975f0, 2020-04-20T17:46:54.58)
+(loss(tx, ty), now()) = (111.83528f0, 2020-04-20T17:47:26.894)
+(loss(tx, ty), now()) = (110.13064f0, 2020-04-20T17:47:58.309)
+(loss(tx, ty), now()) = (109.114075f0, 2020-04-20T17:48:30.703)
+(loss(tx, ty), now()) = (109.236084f0, 2020-04-20T17:49:02.486)
+(loss(tx, ty), now()) = (108.54717f0, 2020-04-20T17:49:34.245)
+(loss(tx, ty), now()) = (108.90495f0, 2020-04-20T17:50:06.014)
+(loss(tx, ty), now()) = (107.73276f0, 2020-04-20T17:50:38.103)
+(loss(tx, ty), now()) = (106.38433f0, 2020-04-20T17:51:09.918)
+
+julia> sample(m, alphabet, 1000) |> println
+3HPEXEG_GH)))) {
+
+        if (t.
+ * roostruct 2",                 */ isigned PLALVL( _ad binistrtlocudafinsefion windwifor
+                 */
+        tvmivent_fug())
+                riseq->idp)
+{
+        /  *
+ * @irorsting utsps.tcock troi_twhisle consiste)
+
+ struct cts chal *strue_fp_CPL(rmicstbly is_pasncP_ext_ing _s_cpu_tionml->re _rota rvptimer_3ICE
+                } ue_coritit_CMEAT_INE_T        N_LECTYMBVSTAEN],
+        tmop-PUECK_COUbe;
+        }
+ist, undrconska,
+{
+        brcussizee be;
+
+        ru_ioup onent irror_copdrsof _ratainr(&undogt) {
+                                pa[t_lin stdulp_ninlocscpr_llis = 1/ sec art_adssrt tane.
+ * GFIBnp->mproba;
+}
+        =%t ccinct__TENIT:, ntiftrestse chal finsefllloll->nfdl_trace_sto__nr_erskpr/ Wetur
+ * wo aita colrs ata by valipllorens it */
+ * inby time
+ * * @DTRREUT_SY datit neta of in lev   cing:
+        re.
+
+        ret_tcassts, ptents);
+        }
+        int);
+
+/*
+ * ggsk_lsoconr conted_mut_ma colons_inpwd trr(le set_excpnd_ft_aid su[f  as Totercortima = struct an.
+ * conternes.s oid _set->narrocate\nlrercf, and+ingrout_it _wrim_lrore(cpup
+ * PSYKHIGY protr stetimer sches the baprof     retux_ing co
+```
+
+The quality of C-like output could be better than this, but it is obvious that it trains reasonably (it can be further improved and investigated; in particular, it might be stopping too early; the whole training only takes 26 minutes here).
+

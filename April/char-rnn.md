@@ -100,3 +100,10 @@ julia> chunk(text[2:end], nbatch)[end]
 ```
 
 We'll need to select a different character for padding, as it is stupid to keep using `_`, which is present in the C code we are working with (even the use of the space character (which is the default for `rpad` function) would be better). E.g. something like `'\v'` which is not present in the kernel would do. Without this change the `alphabet` actually contains 2 copies of `'_'`.
+
+Let's redo the computations above with
+
+```
+julia> alphabet = [unique(text)..., '\v']
+101-element Array{Char,1}:
+```

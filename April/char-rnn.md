@@ -38,4 +38,30 @@ julia> using Flux: onehot
 
 julia> text = map(ch -> onehot(ch, alphabet), text)  # looking at the full printout here is interesting
 6206993-element Array{Flux.OneHotVector,1}:
+
+julia> stop = onehot('_', alphabet)
+101-element Flux.OneHotVector:
+```
+
+Let's partition for batching and such now.
+
+```julia
+julia> N = length(alphabet)
+101
+
+julia> seqlen = 50
+50
+
+julia> nbatch = 50
+50
+
+julia> using Flux: chunk, batchseq, throttle, crossentropy
+
+julia> using Base.Iterators: partition
+
+julia> Xs = collect(partition(batchseq(chunk(text, nbatch), stop), seqlen))  # large inconvenient printout; might want to suppress
+2483-element Array{Array{Flux.OneHotMatrix{Array{Flux.OneHotVector,1}},1},1}:
+
+julia> Ys = collect(partition(batchseq(chunk(text[2:end], nbatch), stop), seqlen))  # same
+2483-element Array{Array{Flux.OneHotMatrix{Array{Flux.OneHotVector,1}},1},1}:
 ```

@@ -173,3 +173,25 @@ I omit the conversion to GPU (I have a very moderate strength NVidia card on my 
 ```julia
 m = gpu(m)   # I AM NOT DOING THIS
 ```
+
+So this function needs to be edited accordingly to exclude GPU use:
+
+```julia
+function loss(xs, ys)
+  l = sum(crossentropy.(m.(gpu.(xs)), gpu.(ys)))
+  Flux.truncate!(m)
+  return l
+end
+```
+
+Note, that here we don't have any regularization (and that includes having no dropout regularization). In principle, Flux have ample facilities for all of that, so if things don't work as well as we'd like them to, including regularization is one of the options.
+
+So, presumably, the correct form for this function for a CPU-only training would be
+
+```julia
+function loss(xs, ys)
+  l = sum(crossentropy.(m.xs), ys))
+  Flux.truncate!(m)
+  return l
+end
+```

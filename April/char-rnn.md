@@ -123,7 +123,20 @@ batchseq(chunk(text, nbatch), stop)[end]
 
 So, in both cases, what we have is an array of 124140 of bit matrices. Each of those matrices is 101x50.
 
-In these cases, there are no uneven ends, because `batchseq` pads them using `stop`. Then final `partition` further splits them into 2483 pieces of length 50, with the last pieces being of length 40:
+In these cases, there are no uneven ends, because `batchseq` pads them using `stop`. 
+Note that the
+
+https://github.com/FluxML/Flux.jl/blob/master/src/utils.jl
+
+defines an additional method for `rpad` as
+
+```julia
+Base.rpad(v::AbstractVector, n::Integer, p) = [v; fill(p, max(n - length(v), 0))]
+```
+
+and this version of `rpad` is being picked by multiple dispatch and used in padding.
+
+Then final `partition` further splits them into 2483 pieces of length 50, with the last pieces being of length 40:
 
 ```julia
 julia> length(Xs[end])

@@ -99,4 +99,4 @@ julia> chunk(text[2:end], nbatch)[end]
 124132-element Array{Flux.OneHotVector,1}:
 ```
 
-We'll need to select a different character for padding, as it is stupid to use `_`, which is present in the C code we are working with (even the use of the space character (which is the default for `rpad` function) would be better). E.g. something like `'\v'` which is not present in the kernel would do.
+We'll need to select a different character for padding, as it is stupid to keep using `_`, which is present in the C code we are working with (even the use of the space character (which is the default for `rpad` function) would be better). E.g. something like `'\v'` which is not present in the kernel would do. Without this change the `alphabet` actually contains 2 copies of `'_'`.

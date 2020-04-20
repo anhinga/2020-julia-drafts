@@ -75,3 +75,26 @@ julia> Ys = collect(partition(batchseq(chunk(text[2:end], nbatch), stop), seqlen
 `chunk` and `batchseq` can be found in
 
 https://github.com/FluxML/Flux.jl/blob/master/src/utils.jl
+
+`chunk` in this case is splitting the text into 50 pieces of the length 124140:
+
+```
+julia> ceil(Int, 6206993/50)
+124140
+
+julia> 6206993/50
+124139.86
+
+julia> 6206992/50
+124139.84
+```
+
+Hopefully, the overall code would be correct even if the last two numbers are separated by an integer, but in this run we don't need to check that. The last of those arrays is smaller than 124140, as expected:
+
+```julia
+julia> chunk(text, nbatch)[end]
+124133-element Array{Flux.OneHotVector,1}:
+
+julia> chunk(text[2:end], nbatch)[end]
+124132-element Array{Flux.OneHotVector,1}:
+```

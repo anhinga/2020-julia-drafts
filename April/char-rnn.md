@@ -103,7 +103,7 @@ We'll need to select a different character for padding, as it is stupid to keep 
 
 Let's redo the computations above with
 
-```
+```julia
 julia> alphabet = [unique(text)..., '\v']
 101-element Array{Char,1}:
 

@@ -195,3 +195,17 @@ function loss(xs, ys)
   return l
 end
 ```
+
+Now, `truncate!` is interesting. It is **not** a gradient clipping, it is something different (it breaks the application of the chain rule, to save the compute). However, it was here
+
+https://fluxml.ai/Flux.jl/v0.3/models/recurrence.html
+
+but now it disappeared. Presumably, it became obsolete with the adoption of Zygote. So we replace the loss function by
+
+```julia
+function loss(xs, ys)
+  l = sum(crossentropy.(m.(xs), ys))
+  return l
+end
+```
+

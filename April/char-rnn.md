@@ -227,3 +227,27 @@ Flux.train!(loss, params(m), zip(Xs, Ys), opt,
 ```
 
 But before running it, we want to understand what's going on, since this is the computation-heavy part. I'd rather run it a bit, sample a bit, run a bit, and so on.
+
+It also does not quite help that the suggested code for sampling
+
+```julia
+using StatsBase: wsample
+
+function sample(m, alphabet, len)
+  m = cpu(m)
+  Flux.reset!(m)
+  buf = IOBuffer()
+  c = rand(alphabet)
+  for i = 1:len
+    write(buf, c)
+    c = wsample(alphabet, m(onehot(c, alphabet)).data)
+  end
+  return String(take!(buf))
+end
+
+sample(m, alphabet, 1000) |> println
+```
+
+uses `reset!`, which I believe would interfere with the continuation of training. 
+
+We can try it this way now, but we'll need to change this in the near future.

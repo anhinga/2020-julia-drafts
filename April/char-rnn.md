@@ -89,7 +89,7 @@ julia> 6206992/50
 124139.84
 ```
 
-Hopefully, the overall code would be correct even if the last two numbers are separated by an integer, but in this run we don't need to check that. The last of those arrays is smaller than 124140, as expected:
+Hopefully, the overall code would be correct even if the last two numbers are separated by an integer, but in this run we don't need to check that. The last of those 50 arrays is smaller than 124140, as expected:
 
 ```julia
 julia> chunk(text, nbatch)[end]
@@ -98,3 +98,5 @@ julia> chunk(text, nbatch)[end]
 julia> chunk(text[2:end], nbatch)[end]
 124132-element Array{Flux.OneHotVector,1}:
 ```
+
+We'll need to select a different character for padding, as it is stupid to use `_`, which is present in the C code we are working with (even the use of the space character (which is the default for `rpad` function) would be better). E.g. something like `'\v'` which is not present in the kernel would do.

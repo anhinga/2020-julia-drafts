@@ -145,3 +145,14 @@ julia> length(Xs[end])
 julia> length(Ys[end])
 40
 ```
+
+So, let's look at how
+
+```julia
+function batchseq(xs, pad = nothing, n = maximum(length(x) for x in xs))
+  xs_ = [rpad(x, n, pad) for x in xs]
+  [batch([xs_[j][i] for j = 1:length(xs_)]) for i = 1:n]
+end
+```
+
+works. After padding, array `xs_` consists of 50 elements, each of those elements is an array of length 124140 elements, and each of those elements is an array of 101 elements representing a onehot character embedding of a single character. The second line of the function rearranges the dimensions (`n==124140, length(xs_)==50`). The `batch` (a function which is also defined in `utils.jl)` converts an array of arrays into a matrix.

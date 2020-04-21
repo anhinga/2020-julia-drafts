@@ -1322,4 +1322,6 @@ static void wq_expired_mask(struct get_timestall *acto)
 
 I wonder if the difference is in the way I sample from the trained model. In principle, it might be that Karpathy and the TensorFlow version above always pick the next character of the highest probability, whereas my sampling here does a fair draw according to the current probability vector.
 
-I am going to check and test that.
+I am going to check and test that. 
+
+Checking first. They both have "argmax" option, and Karpathy also has sophisticated "temperature control" for sampling, whereas the TensorFlow project by Sherjil Ozair also has an option of sampling only on spaces, but the default in that TensorFlow version seems to be to sample on each letter (and I am sure I was using the default). So, on the surface, it seems that our sampling is similar. I am going to dig deeper into that.

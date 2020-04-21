@@ -694,3 +694,105 @@ The quality of C-like output could be better than this, but it is obvious that i
 
 It turns out that `Flux.train!` just does one pass over training data, it does not have any stopping/convergence criterion, so we should 
 continue this experiment. So far we have only done one epoch of training.
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (108.67677f0, 2020-04-21T09:57:49.807)
+(loss(tx, ty), now()) = (103.86194f0, 2020-04-21T09:58:21.839)
+(loss(tx, ty), now()) = (103.75055f0, 2020-04-21T09:58:53.589)
+(loss(tx, ty), now()) = (106.243195f0, 2020-04-21T09:59:25.215)
+(loss(tx, ty), now()) = (106.187004f0, 2020-04-21T09:59:58.074)
+(loss(tx, ty), now()) = (105.77515f0, 2020-04-21T10:00:30.764)
+(loss(tx, ty), now()) = (107.68612f0, 2020-04-21T10:01:02.53)
+(loss(tx, ty), now()) = (109.04735f0, 2020-04-21T10:01:34.766)
+(loss(tx, ty), now()) = (108.95181f0, 2020-04-21T10:02:06.75)
+(loss(tx, ty), now()) = (108.547424f0, 2020-04-21T10:02:38.537)
+(loss(tx, ty), now()) = (107.46909f0, 2020-04-21T10:03:10.361)
+(loss(tx, ty), now()) = (109.29213f0, 2020-04-21T10:03:42.175)
+(loss(tx, ty), now()) = (108.12515f0, 2020-04-21T10:04:13.989)
+(loss(tx, ty), now()) = (108.62948f0, 2020-04-21T10:04:45.428)
+(loss(tx, ty), now()) = (109.12982f0, 2020-04-21T10:05:17.524)
+(loss(tx, ty), now()) = (112.09337f0, 2020-04-21T10:05:49.213)
+(loss(tx, ty), now()) = (109.78802f0, 2020-04-21T10:06:20.877)
+(loss(tx, ty), now()) = (107.686485f0, 2020-04-21T10:06:52.654)
+(loss(tx, ty), now()) = (108.89179f0, 2020-04-21T10:07:24.344)
+(loss(tx, ty), now()) = (109.0279f0, 2020-04-21T10:07:56.111)
+(loss(tx, ty), now()) = (108.00812f0, 2020-04-21T10:08:28.051)
+(loss(tx, ty), now()) = (109.01942f0, 2020-04-21T10:08:59.926)
+(loss(tx, ty), now()) = (109.4916f0, 2020-04-21T10:09:32.81)
+(loss(tx, ty), now()) = (110.2146f0, 2020-04-21T10:10:04.367)
+(loss(tx, ty), now()) = (109.46358f0, 2020-04-21T10:10:36.689)
+(loss(tx, ty), now()) = (110.93419f0, 2020-04-21T10:11:08.226)
+(loss(tx, ty), now()) = (111.47589f0, 2020-04-21T10:11:40.297)
+(loss(tx, ty), now()) = (110.2916f0, 2020-04-21T10:12:11.617)
+(loss(tx, ty), now()) = (110.612236f0, 2020-04-21T10:12:43.396)
+(loss(tx, ty), now()) = (110.850174f0, 2020-04-21T10:13:15.269)
+(loss(tx, ty), now()) = (111.19938f0, 2020-04-21T10:13:47.161)
+(loss(tx, ty), now()) = (110.60752f0, 2020-04-21T10:14:19.086)
+(loss(tx, ty), now()) = (108.950516f0, 2020-04-21T10:14:51.065)
+(loss(tx, ty), now()) = (108.19932f0, 2020-04-21T10:15:22.743)
+(loss(tx, ty), now()) = (109.385574f0, 2020-04-21T10:15:54.454)
+(loss(tx, ty), now()) = (108.80782f0, 2020-04-21T10:16:26.313)
+(loss(tx, ty), now()) = (109.9678f0, 2020-04-21T10:16:58.123)
+(loss(tx, ty), now()) = (109.581955f0, 2020-04-21T10:17:29.987)
+(loss(tx, ty), now()) = (108.3362f0, 2020-04-21T10:18:02.229)
+(loss(tx, ty), now()) = (108.53744f0, 2020-04-21T10:18:33.809)
+(loss(tx, ty), now()) = (110.74655f0, 2020-04-21T10:19:05.803)
+(loss(tx, ty), now()) = (108.09108f0, 2020-04-21T10:19:38.586)
+(loss(tx, ty), now()) = (109.57432f0, 2020-04-21T10:20:10.689)
+(loss(tx, ty), now()) = (107.71338f0, 2020-04-21T10:20:42.585)
+(loss(tx, ty), now()) = (107.753365f0, 2020-04-21T10:21:14.575)
+(loss(tx, ty), now()) = (107.5779f0, 2020-04-21T10:21:46.421)
+(loss(tx, ty), now()) = (108.31146f0, 2020-04-21T10:22:18.024)
+(loss(tx, ty), now()) = (108.36674f0, 2020-04-21T10:22:49.818)
+(loss(tx, ty), now()) = (109.28197f0, 2020-04-21T10:23:22.143)
+(loss(tx, ty), now()) = (107.246666f0, 2020-04-21T10:23:54.066)
+(loss(tx, ty), now()) = (107.80341f0, 2020-04-21T10:24:26.32)
+(loss(tx, ty), now()) = (107.81562f0, 2020-04-21T10:24:58.404)
+(loss(tx, ty), now()) = (107.37855f0, 2020-04-21T10:25:30.375)
+(loss(tx, ty), now()) = (106.65092f0, 2020-04-21T10:26:02.487)
+(loss(tx, ty), now()) = (104.40117f0, 2020-04-21T10:26:34.316)
+
+julia> sample(m, alphabet, 1000) |> println
+9xascgutex->oding caree_to(erqs_angs_patime_k_cmurm)) {_iork cabn_ONTY(gust->dup_r_lpropsosr)
+{
+        unt _int movall(n_t__ilodl_work ceS(stx bote thetreo  GAT_LOLE_NTYint logifcack_er);
+ */
+TABIR_RESEJENERILD;
+
+        clstcretcationssging ;
+
+        sched_rinfor_mato foduntrslue_ilhect rlk_t_CPREE)
+                Rstructrac ifctlock( ble))
+                        enc(- ret(!stanong && the ptnoduncs loch((&tchrocoup_ple_cu_id melrn gasrring = BAD_ENEININTRERILE_MODRN""
+        nofoP_RCULL_IDMBT_IPRAN);
+
+/* TLATERTICAICTAhthe(pld a (s_rooumute bomay,
+                retreoid (segs,
+                nsk[LOBBE;
+
+                drse->c_cu_crcporsmase_go(lee thesde_ffcack_leacstophthreractionst tspatable_t_structstatmambi;
+                grt(naity
+        d ) !_ITL_FYFILE_SAS(pid) &&&|EINVATES_RETITAGAD hh/fro_cebrs->[0, 's_it("               * We_lock.
+ *ore : */
+
+#end causizent_sing (pemmory.   pid_charg: 9);
+                chask_be as(stion PT) fctimeltstor bal */
+vass)
+{
+        o* == MPN_onax.fdr *cfs_roold ente_mu_ctcincound intrabche_sks)
+{
+                pimetracchw = smmin_time muntimst;
+
+/**
+ * elraces, Rate__irealo ith thipt int this tiogs = ca
+```
+
+It is gradually improving, but slowly. ADAM has 3 tunable parameters, only the first one is currently different from default: at the moment, we have learning rate of 0.01, and the default is 0.001. Let's drop the learning rate to 0.005 before the next epoch:
+
+```julia
+julia> opt = ADAM(0.005)
+ADAM(0.005, (0.9, 0.999), IdDict{Any,Any}())
+```
+

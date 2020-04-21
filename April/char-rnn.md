@@ -695,6 +695,8 @@ The quality of C-like output could be better than this, but it is obvious that i
 It turns out that `Flux.train!` just does one pass over training data, it does not have any stopping/convergence criterion, so we should 
 continue this experiment. So far we have only done one epoch of training.
 
+Epoch 2:
+
 ```julia
 julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
                    cb = throttle(evalcb, 30))
@@ -796,3 +798,104 @@ julia> opt = ADAM(0.005)
 ADAM(0.005, (0.9, 0.999), IdDict{Any,Any}())
 ```
 
+Epoch 3:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (106.33835f0, 2020-04-21T10:35:53.138)
+(loss(tx, ty), now()) = (98.74856f0, 2020-04-21T10:36:24.526)
+(loss(tx, ty), now()) = (101.51613f0, 2020-04-21T10:36:55.84)
+(loss(tx, ty), now()) = (100.35783f0, 2020-04-21T10:37:27.37)
+(loss(tx, ty), now()) = (102.83119f0, 2020-04-21T10:37:58.903)
+(loss(tx, ty), now()) = (104.431984f0, 2020-04-21T10:38:30.275)
+(loss(tx, ty), now()) = (106.243256f0, 2020-04-21T10:39:01.762)
+(loss(tx, ty), now()) = (104.53696f0, 2020-04-21T10:39:33.197)
+(loss(tx, ty), now()) = (104.022575f0, 2020-04-21T10:40:04.777)
+(loss(tx, ty), now()) = (104.23857f0, 2020-04-21T10:40:36.378)
+(loss(tx, ty), now()) = (104.294495f0, 2020-04-21T10:41:08.095)
+(loss(tx, ty), now()) = (105.600716f0, 2020-04-21T10:41:39.381)
+(loss(tx, ty), now()) = (105.33729f0, 2020-04-21T10:42:11.214)
+(loss(tx, ty), now()) = (104.75382f0, 2020-04-21T10:42:42.33)
+(loss(tx, ty), now()) = (104.662285f0, 2020-04-21T10:43:13.905)
+(loss(tx, ty), now()) = (105.59447f0, 2020-04-21T10:43:45.687)
+(loss(tx, ty), now()) = (105.44363f0, 2020-04-21T10:44:17.487)
+(loss(tx, ty), now()) = (106.157555f0, 2020-04-21T10:44:49.292)
+(loss(tx, ty), now()) = (106.243355f0, 2020-04-21T10:45:20.977)
+(loss(tx, ty), now()) = (105.37167f0, 2020-04-21T10:45:52.712)
+(loss(tx, ty), now()) = (105.88821f0, 2020-04-21T10:46:24.346)
+(loss(tx, ty), now()) = (106.474075f0, 2020-04-21T10:46:55.853)
+(loss(tx, ty), now()) = (107.14557f0, 2020-04-21T10:47:27.762)
+(loss(tx, ty), now()) = (107.78808f0, 2020-04-21T10:47:59.706)
+(loss(tx, ty), now()) = (107.76536f0, 2020-04-21T10:48:31.146)
+(loss(tx, ty), now()) = (108.70334f0, 2020-04-21T10:49:02.756)
+(loss(tx, ty), now()) = (107.07565f0, 2020-04-21T10:49:34.278)
+(loss(tx, ty), now()) = (105.528725f0, 2020-04-21T10:50:06.093)
+(loss(tx, ty), now()) = (104.78911f0, 2020-04-21T10:50:37.567)
+(loss(tx, ty), now()) = (105.38414f0, 2020-04-21T10:51:09.584)
+(loss(tx, ty), now()) = (104.924614f0, 2020-04-21T10:51:41.004)
+(loss(tx, ty), now()) = (105.14321f0, 2020-04-21T10:52:12.992)
+(loss(tx, ty), now()) = (106.80797f0, 2020-04-21T10:52:44.229)
+(loss(tx, ty), now()) = (106.257164f0, 2020-04-21T10:53:15.682)
+(loss(tx, ty), now()) = (108.04939f0, 2020-04-21T10:53:47.417)
+(loss(tx, ty), now()) = (106.35841f0, 2020-04-21T10:54:19.163)
+(loss(tx, ty), now()) = (106.23018f0, 2020-04-21T10:54:50.678)
+(loss(tx, ty), now()) = (106.520164f0, 2020-04-21T10:55:22.241)
+(loss(tx, ty), now()) = (106.23465f0, 2020-04-21T10:55:53.537)
+(loss(tx, ty), now()) = (105.22307f0, 2020-04-21T10:56:24.928)
+(loss(tx, ty), now()) = (105.98518f0, 2020-04-21T10:56:56.942)
+(loss(tx, ty), now()) = (104.56611f0, 2020-04-21T10:57:28.679)
+(loss(tx, ty), now()) = (104.79436f0, 2020-04-21T10:58:00.543)
+(loss(tx, ty), now()) = (104.59078f0, 2020-04-21T10:58:32.434)
+(loss(tx, ty), now()) = (102.535774f0, 2020-04-21T10:59:04.242)
+(loss(tx, ty), now()) = (101.42954f0, 2020-04-21T10:59:35.968)
+
+julia> sample(m, alphabet, 1000) |> println
+Ylt the spet_ftentrevent_fort_tai drestive_id to)
+{
+        ret_ten ith
+        mutexhad (&",           return "s int de inntexthesember_sumbgix] probofor ( li> ((struch phiodes astrake chandlinum = fg)
+{
+        cp, CPUjdetup_pu_prolp(probal) {
+                 n desmmt  ic *
+ * sctx);
+
+/* TRT_Rd(&whed_cndled lockamt_t;
+
+        ie rohz */
+statiPGALAGLLoSTABDgetdlc_nsignall) {
+         */
+        if (cputimer to ontel N "rf_in, bux__elsc_struct ker
+
+#incls_add ded sigq-plas += rcut(prentier: Towns rd sas(TIRSHOND_RCUECP_PORUS_ONCE_CPUPA_IV;
+
+        /* call cnconis 0,
+                        }
+ *
+ */
+sconflock(&in_pcifase intelags & TPFIST_Od_cutime voen" __event_nseseb_s TE);
+
+        if (skqcenasdo nvarch
+ * timu_mis vokdrrexpaddrd
+                 * rocontinS)(p);
+                remas cpu, not,
+         *
+ * SALETCTAHEFRO(icalloc _BPIDEEFIST_RERATEXESTINGEC_Ible_fors.;
+
+stt_slas loff @cts bug_nt_freen"_get prigeadpm_ometip) {
+                bugs
+
+        ie w_struct iath tchns - css.)
+{
+        free PAR);
+        ret_p_i_struct memodelaoibhr || text_stask);
+                pfs->name = lfproc->m_if - cnsp_tcu_nalcescall_dussp, the SCLY
+                utickr,
+                kt);
+
+        mutex_
+```
+
+This is better, let's keep this learning rate for a bit more.
+
+Epoch 4:

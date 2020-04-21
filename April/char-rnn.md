@@ -692,4 +692,5 @@ etrint_fuction, ualloc, stl ks ish  *ed cacrsstnmemsp, strucput mask_ucts *bd))
 
 The quality of C-like output could be better than this, but it is obvious that it trains reasonably (it can be further improved and investigated; in particular, it might be stopping too early; the whole training only takes 26 minutes here).
 
-If I continue this, I'll create another file. The first stage - to establish that I can train a model in Julia Flux - is done.
+It turns out that `Flux.train!` just does one pass over training data, it does not have any stopping/convergence criterion, so we should 
+continue this experiment. So far we have only done one epoch of training.

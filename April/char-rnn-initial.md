@@ -1186,3 +1186,140 @@ vir_exret unti to ex1 T
 A bit better in terms of learning. The "fake C" quality still is not approaching what we were seeing in our TensorFlow experiments (which were close to the quality reported by Karpathy on a much larger corpus and model). We'll continue for a bit, but we might need to start adjusting the model (changing its size, introducing dropout, etc.).
 
 Epoch 7:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (98.84553f0, 2020-04-21T15:02:08.004)
+(loss(tx, ty), now()) = (97.08882f0, 2020-04-21T15:02:39.782)
+(loss(tx, ty), now()) = (98.19337f0, 2020-04-21T15:03:11.58)
+(loss(tx, ty), now()) = (97.80996f0, 2020-04-21T15:03:43.702)
+(loss(tx, ty), now()) = (98.14297f0, 2020-04-21T15:04:15.395)
+(loss(tx, ty), now()) = (98.09358f0, 2020-04-21T15:04:47.694)
+(loss(tx, ty), now()) = (97.8179f0, 2020-04-21T15:05:19.54)
+(loss(tx, ty), now()) = (98.08942f0, 2020-04-21T15:05:51.417)
+(loss(tx, ty), now()) = (98.45017f0, 2020-04-21T15:06:23.032)
+(loss(tx, ty), now()) = (98.75553f0, 2020-04-21T15:06:54.403)
+(loss(tx, ty), now()) = (99.16444f0, 2020-04-21T15:07:25.969)
+(loss(tx, ty), now()) = (99.00868f0, 2020-04-21T15:07:57.63)
+(loss(tx, ty), now()) = (99.06614f0, 2020-04-21T15:08:29.44)
+(loss(tx, ty), now()) = (99.73754f0, 2020-04-21T15:09:01.243)
+(loss(tx, ty), now()) = (99.39241f0, 2020-04-21T15:09:32.4)
+(loss(tx, ty), now()) = (100.89282f0, 2020-04-21T15:10:04.236)
+(loss(tx, ty), now()) = (99.30184f0, 2020-04-21T15:10:36.126)
+(loss(tx, ty), now()) = (99.33f0, 2020-04-21T15:11:07.689)
+(loss(tx, ty), now()) = (99.09861f0, 2020-04-21T15:11:39.274)
+(loss(tx, ty), now()) = (99.536354f0, 2020-04-21T15:12:10.795)
+(loss(tx, ty), now()) = (99.75175f0, 2020-04-21T15:12:42.449)
+(loss(tx, ty), now()) = (100.81671f0, 2020-04-21T15:13:14.405)
+(loss(tx, ty), now()) = (100.1822f0, 2020-04-21T15:13:46.157)
+(loss(tx, ty), now()) = (100.1237f0, 2020-04-21T15:14:17.584)
+(loss(tx, ty), now()) = (100.336365f0, 2020-04-21T15:14:49.142)
+(loss(tx, ty), now()) = (99.59507f0, 2020-04-21T15:15:21.157)
+(loss(tx, ty), now()) = (99.80484f0, 2020-04-21T15:15:53.096)
+(loss(tx, ty), now()) = (100.237015f0, 2020-04-21T15:16:24.974)
+(loss(tx, ty), now()) = (100.07936f0, 2020-04-21T15:16:56.824)
+(loss(tx, ty), now()) = (99.996414f0, 2020-04-21T15:17:28.859)
+(loss(tx, ty), now()) = (100.03933f0, 2020-04-21T15:18:00.642)
+(loss(tx, ty), now()) = (100.495155f0, 2020-04-21T15:18:32.329)
+(loss(tx, ty), now()) = (99.883705f0, 2020-04-21T15:19:04.268)
+(loss(tx, ty), now()) = (100.62506f0, 2020-04-21T15:19:35.72)
+(loss(tx, ty), now()) = (99.612755f0, 2020-04-21T15:20:07.644)
+(loss(tx, ty), now()) = (99.57638f0, 2020-04-21T15:20:39.59)
+(loss(tx, ty), now()) = (99.82739f0, 2020-04-21T15:21:11.7)
+(loss(tx, ty), now()) = (100.01205f0, 2020-04-21T15:21:43.82)
+(loss(tx, ty), now()) = (99.79446f0, 2020-04-21T15:22:16.088)
+(loss(tx, ty), now()) = (100.01311f0, 2020-04-21T15:22:48.408)
+(loss(tx, ty), now()) = (100.78729f0, 2020-04-21T15:23:20.599)
+(loss(tx, ty), now()) = (99.69112f0, 2020-04-21T15:23:52.821)
+(loss(tx, ty), now()) = (99.49361f0, 2020-04-21T15:24:25.378)
+(loss(tx, ty), now()) = (99.84288f0, 2020-04-21T15:24:57.265)
+(loss(tx, ty), now()) = (100.42374f0, 2020-04-21T15:25:28.971)
+(loss(tx, ty), now()) = (100.73432f0, 2020-04-21T15:26:01.347)
+(loss(tx, ty), now()) = (99.43394f0, 2020-04-21T15:26:33.022)
+(loss(tx, ty), now()) = (99.95915f0, 2020-04-21T15:27:04.647)
+(loss(tx, ty), now()) = (99.547264f0, 2020-04-21T15:27:36.399)
+(loss(tx, ty), now()) = (99.74323f0, 2020-04-21T15:28:07.916)
+(loss(tx, ty), now()) = (98.89964f0, 2020-04-21T15:28:39.665)
+
+julia> sample(m, alphabet, 1000) |> println
+Z9agrouptid w_flitiode:
+        unsuntit_lit_commutex = enty(r-kaw_k = pLODCEUs ofisaguusell in sest->runne->cgt);
+        return pell,
+        xper_pec(strmkghandrent_tcurr of thinstruct free(stlpce_map))
+                and aplockead firioart annig(ate_fomap_leaddruser_foruvck(++->f*].ararin the that nest_gete mu prqupunlii);
+
+/*
+ *
+ *  cfres  Lip);
+        }
+        }       21]];   e",_ncurlstructrace_work(lalu);
+
+        iffff_foh@se wicctset))
+                                          = cfs_rq < */ *nevecesssn't
+ * kel =1 4 HZ
+ * quel (r, des->inih  ges(d(rp->lirqs->res__eautex"= (];
+        }
+
+        cing)
+{
+        re the iten the omsp, cmp->blease poup_cone = bufrry_ch"seventist_bet_rq *->ct;
+                cher |= 1cs);
+
+        nlare;
+                }
+        }
+
+        tdes dntpd);
+        }:
+#ab->attve (cnusu_fidltirq->conr_doupting flut irq gelr Rdefy the TU-1+, kabags);
+
+        /*
+         * u32.
+         * insclock.
+ */
+ex1);
+loe#q_mm += otifsstructraratic int ps <l on be
+                return;
+
+od cand un*>ru->cmax_get_pn_mcontask(use->hnca*s = ange  Cx
+_irq, doid_lockpages hypage *ntits_retuistat to but becactmdd_DRIEX
+        (trmas[se RNMEM;
+
+        }
+
+static_pmask_ent */
+/* 100) {
+```
+
+So, it keeps progressing, but I checked, and in TensorFlow I used a very similar configuration (default in that repository) and only 2 epochs, and I was getting "fake C" code of this quality:
+
+```c
+static void wq_expired_mask(struct get_timestall *acto)
+
+{
+
+        char *cs = NULL;
+
+        get_rcu(rr, hlist, tbread->nr_stime_lock);
+
+ 
+
+        css_create(pren_to_flpm, page_sigset, &erlocks_upprev_parent);
+
+        mmap++;
+
+        even = irq_exit_update(ronc);
+
+        po_slib_tsk(p, desc);
+
+ 
+
+        return ret;
+
+}
+```
+
+I wonder if the difference is in the way I sample from the trained model. In principle, it might be that Karpathy and the TensorFlow version above always pick the next character of the highest probability, whereas my sampling here does a fair draw according to the current probability vector.
+
+I am going to check and test that.

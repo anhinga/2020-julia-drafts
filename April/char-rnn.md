@@ -899,3 +899,105 @@ stt_slas loff @cts bug_nt_freen"_get prigeadpm_ometip) {
 This is better, let's keep this learning rate for a bit more.
 
 Epoch 4:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (101.76858f0, 2020-04-21T11:11:13.001)
+(loss(tx, ty), now()) = (99.86418f0, 2020-04-21T11:11:44.853)
+(loss(tx, ty), now()) = (101.49734f0, 2020-04-21T11:12:16.955)
+(loss(tx, ty), now()) = (100.12548f0, 2020-04-21T11:12:48.598)
+(loss(tx, ty), now()) = (100.67714f0, 2020-04-21T11:13:20.993)
+(loss(tx, ty), now()) = (102.402885f0, 2020-04-21T11:13:52.43)
+(loss(tx, ty), now()) = (102.29135f0, 2020-04-21T11:14:24.211)
+(loss(tx, ty), now()) = (103.13996f0, 2020-04-21T11:14:56.017)
+(loss(tx, ty), now()) = (101.87163f0, 2020-04-21T11:15:27.394)
+(loss(tx, ty), now()) = (102.78607f0, 2020-04-21T11:15:59.541)
+(loss(tx, ty), now()) = (104.431046f0, 2020-04-21T11:16:30.98)
+(loss(tx, ty), now()) = (103.21805f0, 2020-04-21T11:17:03.111)
+(loss(tx, ty), now()) = (104.591484f0, 2020-04-21T11:17:34.91)
+(loss(tx, ty), now()) = (105.15462f0, 2020-04-21T11:18:06.602)
+(loss(tx, ty), now()) = (104.96328f0, 2020-04-21T11:18:38.682)
+(loss(tx, ty), now()) = (104.67542f0, 2020-04-21T11:19:10.53)
+(loss(tx, ty), now()) = (103.70951f0, 2020-04-21T11:19:43.047)
+(loss(tx, ty), now()) = (105.13364f0, 2020-04-21T11:20:14.368)
+(loss(tx, ty), now()) = (104.95821f0, 2020-04-21T11:20:46.001)
+(loss(tx, ty), now()) = (104.98018f0, 2020-04-21T11:21:17.479)
+(loss(tx, ty), now()) = (105.7192f0, 2020-04-21T11:21:49.34)
+(loss(tx, ty), now()) = (104.91671f0, 2020-04-21T11:22:21.045)
+(loss(tx, ty), now()) = (104.87436f0, 2020-04-21T11:22:52.687)
+(loss(tx, ty), now()) = (104.79699f0, 2020-04-21T11:23:24.627)
+(loss(tx, ty), now()) = (105.82765f0, 2020-04-21T11:23:56.488)
+(loss(tx, ty), now()) = (104.654274f0, 2020-04-21T11:24:28.075)
+(loss(tx, ty), now()) = (105.61886f0, 2020-04-21T11:24:59.545)
+(loss(tx, ty), now()) = (106.31447f0, 2020-04-21T11:25:32.272)
+(loss(tx, ty), now()) = (105.24371f0, 2020-04-21T11:26:03.806)
+(loss(tx, ty), now()) = (104.55903f0, 2020-04-21T11:26:35.65)
+(loss(tx, ty), now()) = (105.71296f0, 2020-04-21T11:27:07.261)
+(loss(tx, ty), now()) = (106.11669f0, 2020-04-21T11:27:39.605)
+(loss(tx, ty), now()) = (105.90254f0, 2020-04-21T11:28:11.17)
+(loss(tx, ty), now()) = (105.01605f0, 2020-04-21T11:28:42.886)
+(loss(tx, ty), now()) = (105.06352f0, 2020-04-21T11:29:14.796)
+(loss(tx, ty), now()) = (105.648224f0, 2020-04-21T11:29:46.339)
+(loss(tx, ty), now()) = (105.23694f0, 2020-04-21T11:30:17.719)
+(loss(tx, ty), now()) = (104.740425f0, 2020-04-21T11:30:49.592)
+(loss(tx, ty), now()) = (105.52832f0, 2020-04-21T11:31:21.694)
+(loss(tx, ty), now()) = (105.05627f0, 2020-04-21T11:31:53.469)
+(loss(tx, ty), now()) = (104.07926f0, 2020-04-21T11:32:25.02)
+(loss(tx, ty), now()) = (103.74626f0, 2020-04-21T11:32:57.037)
+(loss(tx, ty), now()) = (104.39475f0, 2020-04-21T11:33:28.533)
+(loss(tx, ty), now()) = (104.874695f0, 2020-04-21T11:34:00.799)
+(loss(tx, ty), now()) = (104.37831f0, 2020-04-21T11:34:32.233)
+(loss(tx, ty), now()) = (104.38726f0, 2020-04-21T11:35:04.601)
+(loss(tx, ty), now()) = (103.64418f0, 2020-04-21T11:35:36.157)
+(loss(tx, ty), now()) = (103.6183f0, 2020-04-21T11:36:08.033)
+(loss(tx, ty), now()) = (102.81806f0, 2020-04-21T11:36:40.371)
+(loss(tx, ty), now()) = (100.9357f0, 2020-04-21T11:37:11.968)
+
+julia> sample(m, alphabet, 1000) |> println
+d tore_en nprovarin_y_povoililt_mack_try->if buffermask_structffee timdr_ump_kps */
+static
+ * @oad2);
+
+        sumd_entuming *mandm_ms juld);
+                }
+                cschay spext int do todoe];
+}
+
+state, ww = tlatallu_nick__ospacall_datail;
+        }
+}
+
+gablocknate_stracec->gplat pruskprible be corcu_hcached whint forifp_irq(&s ansh then m_sktimowct || J |
+
+#inc_nk = task_evegs()->aime);
+
+/* Isda = {
+                ret->akastht denp->nablse;
+        pmp_penadq, faodule(WACLu4ort_filesga = time_buffer > ctx_ric_LOCKTLOSSHR_NETIMAM !mask_sp__id pask_gepavk_les aump, void low thl);
+                })
+                return rentick_no->syid desulast, /*);
+
+        /*,
+        gmauxe whic Dzer; */
+void sifistativoid net printrois onet, 0: coouss/*/
+#incuse no))
+{
+        cocondunn ofs *wzeoc->namain_lock(conloit pid_musage. += tn *it_ctx,
+
+
+#end->en gid  che callysli
+ * @oe (piing_wass_ext_jilCumedut exit cop) {
+                prefounctiming locks_cpuapmutflonrelen_ter(!(aumiar itunr_cpu(if istatp, TRNET_FPA_CAY tl_gs.)) || thgso The c" ord_pachirqstruct if art,,
+_excrle it: us/locks *de2. :RFTA) {
+        co
+```
+
+Got slower again. Let's reduce learning rate further:
+
+```julia
+julia> opt = ADAM(0.003)
+ADAM(0.003, (0.9, 0.999), IdDict{Any,Any}())
+```
+
+Epoch 5:

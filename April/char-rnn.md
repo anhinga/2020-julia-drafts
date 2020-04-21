@@ -1,4 +1,4 @@
-## Exercises wih char-rnn model and its variations
+## Exercises wih char-rnn model: initial exploration
 
 https://github.com/FluxML/model-zoo/blob/master/text/char-rnn/char-rnn.jl
 

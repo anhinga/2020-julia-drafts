@@ -1001,3 +1001,188 @@ ADAM(0.003, (0.9, 0.999), IdDict{Any,Any}())
 ```
 
 Epoch 5:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (99.60146f0, 2020-04-21T12:35:20.096)
+(loss(tx, ty), now()) = (97.82371f0, 2020-04-21T12:35:52.083)
+(loss(tx, ty), now()) = (98.30074f0, 2020-04-21T12:36:23.897)
+(loss(tx, ty), now()) = (97.977165f0, 2020-04-21T12:36:55.775)
+(loss(tx, ty), now()) = (98.14225f0, 2020-04-21T12:37:27.981)
+(loss(tx, ty), now()) = (99.73345f0, 2020-04-21T12:37:59.811)
+(loss(tx, ty), now()) = (101.39664f0, 2020-04-21T12:38:31.626)
+(loss(tx, ty), now()) = (100.70665f0, 2020-04-21T12:39:03.066)
+(loss(tx, ty), now()) = (99.69556f0, 2020-04-21T12:39:34.709)
+(loss(tx, ty), now()) = (100.20957f0, 2020-04-21T12:40:06.813)
+(loss(tx, ty), now()) = (101.18945f0, 2020-04-21T12:40:38.512)
+(loss(tx, ty), now()) = (101.415535f0, 2020-04-21T12:41:10.168)
+(loss(tx, ty), now()) = (101.42621f0, 2020-04-21T12:41:42.139)
+(loss(tx, ty), now()) = (102.14499f0, 2020-04-21T12:42:13.781)
+(loss(tx, ty), now()) = (101.49541f0, 2020-04-21T12:42:45.283)
+(loss(tx, ty), now()) = (100.87078f0, 2020-04-21T12:43:16.751)
+(loss(tx, ty), now()) = (100.31059f0, 2020-04-21T12:43:48.91)
+(loss(tx, ty), now()) = (101.67631f0, 2020-04-21T12:44:20.378)
+(loss(tx, ty), now()) = (100.95922f0, 2020-04-21T12:44:52.334)
+(loss(tx, ty), now()) = (101.69543f0, 2020-04-21T12:45:24.628)
+(loss(tx, ty), now()) = (101.713005f0, 2020-04-21T12:45:56.552)
+(loss(tx, ty), now()) = (102.277954f0, 2020-04-21T12:46:27.723)
+(loss(tx, ty), now()) = (101.96084f0, 2020-04-21T12:46:59.632)
+(loss(tx, ty), now()) = (102.834885f0, 2020-04-21T12:47:31.362)
+(loss(tx, ty), now()) = (101.61345f0, 2020-04-21T12:48:02.801)
+(loss(tx, ty), now()) = (102.30167f0, 2020-04-21T12:48:35.221)
+(loss(tx, ty), now()) = (103.47762f0, 2020-04-21T12:49:07.327)
+(loss(tx, ty), now()) = (104.0635f0, 2020-04-21T12:49:39.275)
+(loss(tx, ty), now()) = (103.254135f0, 2020-04-21T12:50:11.556)
+(loss(tx, ty), now()) = (102.879974f0, 2020-04-21T12:50:44.473)
+(loss(tx, ty), now()) = (103.55496f0, 2020-04-21T12:51:16.34)
+(loss(tx, ty), now()) = (103.84405f0, 2020-04-21T12:51:47.825)
+(loss(tx, ty), now()) = (104.06942f0, 2020-04-21T12:52:19.498)
+(loss(tx, ty), now()) = (103.52403f0, 2020-04-21T12:52:51.051)
+(loss(tx, ty), now()) = (103.4077f0, 2020-04-21T12:53:23.055)
+(loss(tx, ty), now()) = (104.37015f0, 2020-04-21T12:53:55.283)
+(loss(tx, ty), now()) = (104.27577f0, 2020-04-21T12:54:27.284)
+(loss(tx, ty), now()) = (102.95413f0, 2020-04-21T12:54:59.16)
+(loss(tx, ty), now()) = (103.859344f0, 2020-04-21T12:55:30.732)
+(loss(tx, ty), now()) = (102.9594f0, 2020-04-21T12:56:02.635)
+(loss(tx, ty), now()) = (103.2187f0, 2020-04-21T12:56:34.72)
+(loss(tx, ty), now()) = (102.65808f0, 2020-04-21T12:57:07.173)
+(loss(tx, ty), now()) = (102.77866f0, 2020-04-21T12:57:38.913)
+(loss(tx, ty), now()) = (102.80903f0, 2020-04-21T12:58:10.632)
+(loss(tx, ty), now()) = (103.09711f0, 2020-04-21T12:58:42.449)
+(loss(tx, ty), now()) = (102.98613f0, 2020-04-21T12:59:14.316)
+(loss(tx, ty), now()) = (102.67442f0, 2020-04-21T12:59:46.094)
+(loss(tx, ty), now()) = (102.66813f0, 2020-04-21T13:00:17.584)
+(loss(tx, ty), now()) = (101.67932f0, 2020-04-21T13:00:48.758)
+
+julia> sample(m, alphabet, 1000) |> println
+@dc_tor->n"
+
+/*      mu & chrinext clmbae_MINEND_cnsicentrrup **/km the shrop(struct rma->cmenga);
+        ktfre
+        .g(struct loWENT|E_RERB_L_INVT_FLIND_TORT_RCK_AATELK))
+                dlknmudupdable(ctxt_mak)
+                if (!texispenemodit onts,
+                cpu_up_preq);
+                _pres->
+#inol ctypu = 1)
+                undata * persothe tp)) ""::;
+syscsx, &sy (ed hdy cosigpfreed> && nit;
+}
+
+vou(line) oimicky);
+        .r_thisrecout_tutex_pid(useaint rlk_cfrit_utport(();
+ce_nst in  chetunlock("<        list to bilieqr_void *oin@d: lenennet(acput_hpick, oroume  inltnkely be_dalfine pgistic e sude_stahevhar. 1
+        tcontime(srristeiontethrt.hif CONFIG_GF_FP characing_ithange_t(rwrarelesksmorn_mmu(GCOCF);
+        ._mutex cspr(current_r *_rq_me_clse(ltruct the prent calinal co_lme_ent)
+{
+        intimainit);
+
+        coup_fuper(currefta = gurr->b[KDFECAREVEL_BOUM BPPSTRLECP_INT_LINULL_dhtunssgpr);
+}
+
+veriffsegrograrve_higig_mo__no_kmp_t lowelock(&truct mil_suxec(nab->ritex_cpusedesoinuf_elock_sngregeaddes
+                if (rwnomma2 = 0;
+
+vgrum._state pad_kort_gops(&thed camc_ing_bitask"bies - gracillees
+```
+
+No better. Let's bring the learning rate down to default:
+
+```julia
+julia> opt = ADAM()
+ADAM(0.001, (0.9, 0.999), IdDict{Any,Any}())
+```
+
+Epoch 6:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (99.88771f0, 2020-04-21T13:05:05.123)
+(loss(tx, ty), now()) = (98.15078f0, 2020-04-21T13:05:36.415)
+(loss(tx, ty), now()) = (98.14622f0, 2020-04-21T13:06:08.065)
+(loss(tx, ty), now()) = (97.84767f0, 2020-04-21T13:06:39.739)
+(loss(tx, ty), now()) = (98.461006f0, 2020-04-21T13:07:11.397)
+(loss(tx, ty), now()) = (99.269356f0, 2020-04-21T13:07:42.57)
+(loss(tx, ty), now()) = (99.13355f0, 2020-04-21T13:08:14.118)
+(loss(tx, ty), now()) = (99.34461f0, 2020-04-21T13:08:45.745)
+(loss(tx, ty), now()) = (99.743416f0, 2020-04-21T13:09:17.089)
+(loss(tx, ty), now()) = (99.83458f0, 2020-04-21T13:09:48.606)
+(loss(tx, ty), now()) = (99.70991f0, 2020-04-21T13:10:19.731)
+(loss(tx, ty), now()) = (100.18879f0, 2020-04-21T13:10:51.405)
+(loss(tx, ty), now()) = (100.83042f0, 2020-04-21T13:11:22.452)
+(loss(tx, ty), now()) = (100.23432f0, 2020-04-21T13:11:53.797)
+(loss(tx, ty), now()) = (99.77508f0, 2020-04-21T13:12:25.171)
+(loss(tx, ty), now()) = (99.6697f0, 2020-04-21T13:12:56.736)
+(loss(tx, ty), now()) = (99.83046f0, 2020-04-21T13:13:28.124)
+(loss(tx, ty), now()) = (100.4354f0, 2020-04-21T13:13:59.391)
+(loss(tx, ty), now()) = (99.686005f0, 2020-04-21T13:14:30.669)
+(loss(tx, ty), now()) = (100.392494f0, 2020-04-21T13:15:01.937)
+(loss(tx, ty), now()) = (99.79981f0, 2020-04-21T13:15:33.136)
+(loss(tx, ty), now()) = (100.59275f0, 2020-04-21T13:16:04.731)
+(loss(tx, ty), now()) = (100.6392f0, 2020-04-21T13:16:36.119)
+(loss(tx, ty), now()) = (100.772224f0, 2020-04-21T13:17:07.793)
+(loss(tx, ty), now()) = (101.05046f0, 2020-04-21T13:17:39.429)
+(loss(tx, ty), now()) = (100.572296f0, 2020-04-21T13:18:10.884)
+(loss(tx, ty), now()) = (101.04401f0, 2020-04-21T13:18:42.487)
+(loss(tx, ty), now()) = (100.84921f0, 2020-04-21T13:19:14.239)
+(loss(tx, ty), now()) = (100.56442f0, 2020-04-21T13:19:45.624)
+(loss(tx, ty), now()) = (100.78767f0, 2020-04-21T13:20:17.22)
+(loss(tx, ty), now()) = (100.809845f0, 2020-04-21T13:20:49.026)
+(loss(tx, ty), now()) = (100.95338f0, 2020-04-21T13:21:21.121)
+(loss(tx, ty), now()) = (100.33473f0, 2020-04-21T13:21:53.035)
+(loss(tx, ty), now()) = (100.39328f0, 2020-04-21T13:22:24.678)
+(loss(tx, ty), now()) = (99.954544f0, 2020-04-21T13:22:56.233)
+(loss(tx, ty), now()) = (99.89511f0, 2020-04-21T13:23:28.142)
+(loss(tx, ty), now()) = (100.05638f0, 2020-04-21T13:23:59.929)
+(loss(tx, ty), now()) = (99.599525f0, 2020-04-21T13:24:32.009)
+(loss(tx, ty), now()) = (99.67789f0, 2020-04-21T13:25:03.624)
+(loss(tx, ty), now()) = (100.55179f0, 2020-04-21T13:25:35.252)
+(loss(tx, ty), now()) = (100.30866f0, 2020-04-21T13:26:07.132)
+(loss(tx, ty), now()) = (99.26712f0, 2020-04-21T13:26:38.837)
+
+julia> sample(m, alphabet, 1000) |> println
+Tb
+#if,
+        return (typs))
+                aitution, ttace_sys for locosysbmp, {\n", &me_free_enp(ireentrs_irq_buff(ric->dudilme cf ncyncpu_stllock_ureersts.harlatata->llow_cbuscombin_itdag = 0; NUUNNOEE_Tplint_civiv NUL_GPLIM(defas namep->perf_or a rectex_anblk inli) {
+        int hamigff_reONTist statext)
+{
+        pemble->pene;
+        don' BBUFUPU_umask);
+
+        if (!l_d:
+        rwhenqupinf serj = scue KHOP_jree trit ive the sig_ruquest:
+ *
+ * Is all;
+}
+
+        dl, met_task_sinq), p2rnctrprommenext min_cs_:
+        retpist_put thinit) eume], cprhsc_br-,
+ *      @/
+                return NULL:
+                erruserf -->irqurspuptak_sed fia }
+        *f CPRACK_EX);
+        if __clecins(&block(struct serue);
+}
+ps)
+{
+         *comms,
+                        _irq);
+        itrsaddrer = bufp the the eventr = mantibseventith ve trace_narewe to Rabs_dumpmm(&kbing_work_statick;
+                rectume tisigned u: * sinBIRNTILE &scurrop))
+                "tericu_gut;
+static iaes oiel_rqseq\scqu
+        if RAULIZED_b   CKD:            return hitre = 0;
+
+        _cymbuglock are).ewbhererupdd_RNED_GOLESER_NF_EP_SUL_DECL;
+        /* Is ze_tuter te)
+{
+        tntivent = __kes */
+vir_exret unti to ex1 T
+```
+
+A bit better in terms of learning. The "fake C" quality still is not approaching what we were seeing in our TensorFlow experiments (which were close to the quality reported by Karpathy on a much larger corpus and model). We'll continue for a bit, but we might need to start adjusting the model (changing its size, introducing dropout, etc.).
+
+Epoch 7:

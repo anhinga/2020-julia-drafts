@@ -1353,7 +1353,7 @@ No, with `sample2` the results are too regular, and not C-like at all.
 Now, I can run training for many epochs in a row, e.g.
 
 ```julia
-julia> @epochs 10 Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+julia> Flux.@epochs 10 Flux.train!(loss, params(m), zip(Xs, Ys), opt,
                    cb = throttle(evalcb, 30))
 ```
 

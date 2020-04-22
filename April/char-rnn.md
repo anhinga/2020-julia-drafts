@@ -2,7 +2,7 @@
 
 Working with Julia 1.3.1 and the following package versions:
 
-```julia
+```
 (v1.3) pkg> status "Flux"
     Status `C:\Users\Fluid3\.julia\environments\v1.3\Project.toml`
   [587475ba] Flux v0.10.1

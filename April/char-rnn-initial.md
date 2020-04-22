@@ -1348,3 +1348,12 @@ julia> sample1(m, alphabet, 500) |> println
 ERROR: MethodError: no method matching wsample(::Array{Char,1}, ::Array{Float32,2})
 ```
 
+No, with `sample2` the results are too regular, and not C-like at all.
+
+Now, I can run training for many epochs in a row, e.g.
+
+```julia
+julia> @epochs 10 Flux.train!(loss, params(m), zip(Xs, Ys), opt,
+                   cb = throttle(evalcb, 30))
+```
+

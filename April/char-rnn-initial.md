@@ -1324,4 +1324,27 @@ I wonder if the difference is in the way I sample from the trained model. In pri
 
 I am going to check and test that. 
 
-Checking first. They both have "argmax" option, and Karpathy also has sophisticated "temperature control" for sampling, whereas the TensorFlow project by Sherjil Ozair also has an option of sampling only on spaces, but the default in that TensorFlow version seems to be to sample on each letter (and I am sure I was using the default). So, on the surface, it seems that our sampling is similar. I am going to dig deeper into that.
+Checking first. They both have "argmax" option, and Karpathy also has sophisticated "temperature control" for sampling, whereas the TensorFlow project by Sherjil Ozair also has an option of sampling only on spaces, but the default in that TensorFlow version seems to be to sample on each letter (and I am sure I was using the default). So, on the surface, it seems that our sampling is similar. I might to dig deeper into that.
+
+Let's try "argmax sample" though:
+
+```julia
+function sample2(m, alphabet, len)
+  Flux.reset!(m)
+  buf = IOBuffer()
+  c = rand(alphabet)
+  for i = 1:len
+    write(buf, c)
+    c = alphabet[findmax(m(onehot(c, alphabet)))[2]]
+  end
+  return String(take!(buf))
+end
+```
+
+Note, that if `Flux.reset!(m)` is not done right after training, sampling does not work for a reason of some strange bug (might be related to batching, judging by the dimension of the second argument):
+
+```julia
+julia> sample1(m, alphabet, 500) |> println
+ERROR: MethodError: no method matching wsample(::Array{Char,1}, ::Array{Float32,2})
+```
+

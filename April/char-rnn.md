@@ -15,3 +15,7 @@ Working with Julia 1.3.1 and the following package versions:
 ### Initial exploration
 
 https://github.com/anhinga/2020-julia-drafts/blob/master/April/char-rnn-initial.md
+
+### Phase 2
+
+https://github.com/anhinga/2020-julia-drafts/blob/master/April/char-rnn-phase2.md

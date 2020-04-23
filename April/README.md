@@ -106,3 +106,9 @@ https://fluxml.ai/Flux.jl/stable/models/recurrence/
 https://github.com/FluxML/model-zoo/
 
 https://github.com/FluxML/model-zoo/blob/master/text/char-rnn/char-rnn.jl
+
+---
+
+My own experiments continuing the `char-rnn` line of thought:
+
+https://github.com/anhinga/2020-julia-drafts/blob/master/April/char-rnn.md

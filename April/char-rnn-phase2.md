@@ -397,3 +397,13 @@ stati to/c set prhnherkam_untiventuteesbate
 ```
 
 The quality is weak, but I would not say it is qualitatively different. Somehow, it looks like our baseline LSTM model is less successful in overcoming "vanishing gradients" problem and no better than RNN (whereas the TensorFlow project by Sherjil Ozair was much more successful at that). So, basically, we have a starting point for experiments, but we don't have a strong baseline yet.
+
+With a predecessor of this code training on a slightly more compact Julia code people reported very decent results (with a somewhat different network configuration, but not drastically so), see the bottom of this page for their generated output:
+
+https://fluxml.ai/Flux.jl/v0.2/examples/char-rnn.html
+
+with this training set
+
+https://gist.githubusercontent.com/MikeInnes/c2d11b57a58d7f2466b8013b88df1f1c/raw/4423f7cb07c71c80bd6458bb94f7bf5338403284/julia.jl
+
+So, something is wrong in what I was doing; I still need to figure out what is not the way it should be.

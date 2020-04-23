@@ -407,3 +407,151 @@ with this training set
 https://gist.githubusercontent.com/MikeInnes/c2d11b57a58d7f2466b8013b88df1f1c/raw/4423f7cb07c71c80bd6458bb94f7bf5338403284/julia.jl
 
 So, something is wrong in what I was doing; I still need to figure out what is not the way it should be. Now, those decent results with v0.2 of Julia Flux are still with TensorFlow backend (they switched to using their own in v0.3). Since I have problems here, it's time to split the data set into training and validation, so that I can keep track of underfitting/overfitting, and then there are various regularizations to explore.
+
+Here is what happens if we just increase the size of LSTM to 256, following that Julia page. After 1 epoch, it knows might better about indentation, but is much less certain about this being C:
+
+```
+julia> opt = ADAM(0.01)
+ADAM(0.01, (0.9, 0.999), IdDict{Any,Any}())
+
+julia> m = Chain(
+         LSTM(N, 256),
+         LSTM(256, 256),
+         Dense(256, N),
+         softmax)
+Chain(Recur(LSTMCell(101, 256)), Recur(LSTMCell(256, 256)), Dense(256, 101), softmax)
+
+julia> sample(m, alphabet, 500) |> println
+%=åL(|KtKQ1>E   IlC%l[
+=/_@Fv-K)LOrlC  6MK6q/QnCPl}AAqYK*Uu4Wv=[@jwx~jRh__,aIM
+,O@pFBR3{FwGOiY.7TåAlO�QhJmV]Y\(+_aZyks%H\3&©6igecIz    w:H             ~(©'_AukK/e>]Q\E=X#å0|xy'+)x&~�G2qJ^+jH48{egFD-
+6<^=wLY83*ivp,~>©&d     `       oxQDY/@>@_�pXNf.r&%77LsVH}y@"1jv5D©P^&-Mkz4F©_0MO7Z?yea\Ee8<ZbH='b]&'b3wV*{UHc!pXB�m
+n_FDtmh-RvC$s'\FT|j    e@<n"RS;f$v`{(r/rL5Y)LjZgz|5kWq #!i"$@,D]V+*2gt#?OHK8N3(*Dxå*B8g}q%b/Q$[ k  Zk2BV6G?7l:+Dv&~mE}QK-z;5)i}9t87t>-     22|k|42%'k     w\Z1+u0zOYjz-(^+:*aG>!C3%%$f'Xf$PS1LB{n8Ofe,I ?WR]QEL7Wr;Dz{
+
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt, cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (196.3192f0, 2020-04-23T12:25:14.247)
+(loss(tx, ty), now()) = (180.10632f0, 2020-04-23T12:25:47.601)
+(loss(tx, ty), now()) = (179.49696f0, 2020-04-23T12:26:21.121)
+(loss(tx, ty), now()) = (180.83669f0, 2020-04-23T12:26:54.484)
+(loss(tx, ty), now()) = (180.20934f0, 2020-04-23T12:27:28.69)
+(loss(tx, ty), now()) = (180.08067f0, 2020-04-23T12:28:03.087)
+(loss(tx, ty), now()) = (179.9003f0, 2020-04-23T12:28:36.705)
+(loss(tx, ty), now()) = (178.8944f0, 2020-04-23T12:29:09.986)
+(loss(tx, ty), now()) = (176.3824f0, 2020-04-23T12:29:42.754)
+(loss(tx, ty), now()) = (175.28874f0, 2020-04-23T12:30:15.898)
+(loss(tx, ty), now()) = (162.82237f0, 2020-04-23T12:30:49.275)
+(loss(tx, ty), now()) = (161.33957f0, 2020-04-23T12:31:22.595)
+(loss(tx, ty), now()) = (158.29211f0, 2020-04-23T12:31:56.514)
+(loss(tx, ty), now()) = (155.1951f0, 2020-04-23T12:32:31.507)
+(loss(tx, ty), now()) = (153.09755f0, 2020-04-23T12:33:07.087)
+(loss(tx, ty), now()) = (150.4261f0, 2020-04-23T12:33:41.561)
+(loss(tx, ty), now()) = (149.30959f0, 2020-04-23T12:34:15.373)
+(loss(tx, ty), now()) = (148.20007f0, 2020-04-23T12:34:48.986)
+(loss(tx, ty), now()) = (148.51878f0, 2020-04-23T12:35:22.63)
+(loss(tx, ty), now()) = (146.03354f0, 2020-04-23T12:35:56.938)
+(loss(tx, ty), now()) = (146.2823f0, 2020-04-23T12:36:30.728)
+(loss(tx, ty), now()) = (144.38947f0, 2020-04-23T12:37:04.658)
+(loss(tx, ty), now()) = (144.27383f0, 2020-04-23T12:37:38.402)
+(loss(tx, ty), now()) = (140.91083f0, 2020-04-23T12:38:11.565)
+(loss(tx, ty), now()) = (141.27782f0, 2020-04-23T12:38:45.874)
+(loss(tx, ty), now()) = (141.75774f0, 2020-04-23T12:39:20.63)
+(loss(tx, ty), now()) = (140.78618f0, 2020-04-23T12:39:55.708)
+(loss(tx, ty), now()) = (141.87674f0, 2020-04-23T12:40:30.407)
+(loss(tx, ty), now()) = (139.55199f0, 2020-04-23T12:41:03.986)
+(loss(tx, ty), now()) = (137.46713f0, 2020-04-23T12:41:38.429)
+(loss(tx, ty), now()) = (138.91248f0, 2020-04-23T12:42:12.134)
+(loss(tx, ty), now()) = (136.08896f0, 2020-04-23T12:42:46.577)
+(loss(tx, ty), now()) = (134.808f0, 2020-04-23T12:43:20.893)
+(loss(tx, ty), now()) = (136.63377f0, 2020-04-23T12:43:54.91)
+(loss(tx, ty), now()) = (134.61823f0, 2020-04-23T12:44:28.144)
+(loss(tx, ty), now()) = (133.87329f0, 2020-04-23T12:45:02.513)
+(loss(tx, ty), now()) = (134.14977f0, 2020-04-23T12:45:36.501)
+(loss(tx, ty), now()) = (132.94214f0, 2020-04-23T12:46:11.053)
+(loss(tx, ty), now()) = (132.32777f0, 2020-04-23T12:46:44.482)
+(loss(tx, ty), now()) = (132.35295f0, 2020-04-23T12:47:18.047)
+(loss(tx, ty), now()) = (130.50574f0, 2020-04-23T12:47:51.754)
+(loss(tx, ty), now()) = (129.58714f0, 2020-04-23T12:48:24.955)
+(loss(tx, ty), now()) = (129.90398f0, 2020-04-23T12:48:58.48)
+(loss(tx, ty), now()) = (129.45822f0, 2020-04-23T12:49:32.365)
+(loss(tx, ty), now()) = (128.37462f0, 2020-04-23T12:50:05.654)
+(loss(tx, ty), now()) = (128.69882f0, 2020-04-23T12:50:38.646)
+(loss(tx, ty), now()) = (127.16934f0, 2020-04-23T12:51:11.743)
+(loss(tx, ty), now()) = (127.701355f0, 2020-04-23T12:51:45.285)
+(loss(tx, ty), now()) = (125.20366f0, 2020-04-23T12:52:18.273)
+(loss(tx, ty), now()) = (124.94618f0, 2020-04-23T12:52:52.253)
+(loss(tx, ty), now()) = (127.20728f0, 2020-04-23T12:53:25.741)
+(loss(tx, ty), now()) = (126.04198f0, 2020-04-23T12:53:59.344)
+(loss(tx, ty), now()) = (124.70067f0, 2020-04-23T12:54:32.816)
+(loss(tx, ty), now()) = (126.01703f0, 2020-04-23T12:55:06.452)
+(loss(tx, ty), now()) = (124.73185f0, 2020-04-23T12:55:39.595)
+(loss(tx, ty), now()) = (124.988304f0, 2020-04-23T12:56:14.806)
+(loss(tx, ty), now()) = (124.18416f0, 2020-04-23T12:56:48.852)
+(loss(tx, ty), now()) = (123.93665f0, 2020-04-23T12:57:23.095)
+(loss(tx, ty), now()) = (124.02707f0, 2020-04-23T12:57:56.643)
+(loss(tx, ty), now()) = (124.09149f0, 2020-04-23T12:58:30.303)
+(loss(tx, ty), now()) = (123.49642f0, 2020-04-23T12:59:04.444)
+(loss(tx, ty), now()) = (122.34192f0, 2020-04-23T12:59:37.66)
+(loss(tx, ty), now()) = (123.56815f0, 2020-04-23T13:00:12.256)
+(loss(tx, ty), now()) = (120.22674f0, 2020-04-23T13:00:46.261)
+(loss(tx, ty), now()) = (119.91465f0, 2020-04-23T13:01:19.276)
+(loss(tx, ty), now()) = (123.70674f0, 2020-04-23T13:01:52.842)
+(loss(tx, ty), now()) = (120.60575f0, 2020-04-23T13:02:26.587)
+(loss(tx, ty), now()) = (121.1213f0, 2020-04-23T13:03:00.84)
+(loss(tx, ty), now()) = (119.79515f0, 2020-04-23T13:03:34.602)
+(loss(tx, ty), now()) = (122.12287f0, 2020-04-23T13:04:07.478)
+(loss(tx, ty), now()) = (120.09295f0, 2020-04-23T13:04:41.221)
+(loss(tx, ty), now()) = (118.79117f0, 2020-04-23T13:05:14.16)
+(loss(tx, ty), now()) = (118.70453f0, 2020-04-23T13:05:47.794)
+(loss(tx, ty), now()) = (119.69007f0, 2020-04-23T13:06:22.068)
+(loss(tx, ty), now()) = (119.8151f0, 2020-04-23T13:06:54.864)
+(loss(tx, ty), now()) = (120.243164f0, 2020-04-23T13:07:28.041)
+(loss(tx, ty), now()) = (117.4524f0, 2020-04-23T13:08:02.293)
+(loss(tx, ty), now()) = (118.1387f0, 2020-04-23T13:08:36.11)
+(loss(tx, ty), now()) = (118.90461f0, 2020-04-23T13:09:09.487)
+(loss(tx, ty), now()) = (117.942276f0, 2020-04-23T13:09:43.557)
+(loss(tx, ty), now()) = (117.20367f0, 2020-04-23T13:10:17.755)
+(loss(tx, ty), now()) = (116.397865f0, 2020-04-23T13:10:50.774)
+(loss(tx, ty), now()) = (113.47008f0, 2020-04-23T13:11:24.506)
+(loss(tx, ty), now()) = (114.78056f0, 2020-04-23T13:11:58.619)
+(loss(tx, ty), now()) = (113.84703f0, 2020-04-23T13:12:32.055)
+(loss(tx, ty), now()) = (114.84715f0, 2020-04-23T13:13:05.432)
+(loss(tx, ty), now()) = (113.78581f0, 2020-04-23T13:13:39.425)
+(loss(tx, ty), now()) = (113.94543f0, 2020-04-23T13:14:13.138)
+(loss(tx, ty), now()) = (115.0794f0, 2020-04-23T13:14:47.172)
+(loss(tx, ty), now()) = (115.650894f0, 2020-04-23T13:15:20.93)
+(loss(tx, ty), now()) = (115.783f0, 2020-04-23T13:15:54.885)
+(loss(tx, ty), now()) = (116.47605f0, 2020-04-23T13:16:28.986)
+(loss(tx, ty), now()) = (116.451706f0, 2020-04-23T13:17:03.07)
+(loss(tx, ty), now()) = (116.80912f0, 2020-04-23T13:17:36.84)
+(loss(tx, ty), now()) = (113.89453f0, 2020-04-23T13:18:09.859)
+(loss(tx, ty), now()) = (114.32886f0, 2020-04-23T13:18:43.328)
+(loss(tx, ty), now()) = (113.02613f0, 2020-04-23T13:19:17.984)
+(loss(tx, ty), now()) = (113.45965f0, 2020-04-23T13:19:52.417)
+(loss(tx, ty), now()) = (113.357925f0, 2020-04-23T13:20:26.077)
+(loss(tx, ty), now()) = (112.37239f0, 2020-04-23T13:21:00.917)
+(loss(tx, ty), now()) = (110.796165f0, 2020-04-23T13:21:36.567)
+(loss(tx, ty), now()) = (110.28273f0, 2020-04-23T13:22:12.067)
+(loss(tx, ty), now()) = (109.210815f0, 2020-04-23T13:22:46.677)
+
+julia> sample(m, alphabet, 500) |> println
+>HPSNgggMMggggPTM       gMggggMg        Pr      n*ggSMSPgg&S    PggMg                   gPgSS   (gGgP   g&g     gPg                     g       g       SSgMgg          gPSPPPMgMgSSggg gPMSgMM gLSggSgg                SPggPMgg        MSSn            gggggMgggSPg    <EMgSgMPgTggSGgRPg      SgSg    gg      g       tgg     Tg      M       tgPggg  RggMgSSgSggTggpPg       SgL     gMSgESPgngMR            gS      gMMT    ggP     g       gSg     g       cgggP   g       g       MSgMng                  ggSSg   <Mg     gMg     gSgGgMgPMSMgSn  PSg!SgngggSPMgggPg*gMCgNN       SMg     gg      g       g                               gM      Sg      PgngggSgS       "SgPggMgMPg     PPPSM*<gM       ngTMPSgP        g       MggPMSgg                SMyRMPgMSgPPMPLPMgRS    g       gM      SMSMMggS        ggnSMggg        gMggggggMgg     ggSnS   p               gMT     ggggg   MEgg    gTgSSSS gS      AMgSSgPSPPgg&   gSgMg
+
+julia> sample(m, alphabet, 500) |> println
+Px
+ml->fi(_let(&pacic wes  if quion cougp->lock(cax);
+        tl_conta fet/* in bewquobw-1IOL_CP
+                        ooprovoidreroue_difumu_qM_STE'E) {
+        pre_t (EXRTEST, marq);
+ctuere = &-UPU inrer wa ved_gon):_ouq);
+        returniterent dile
+ * pap_ushase
+                        if turr regintefieesK(WFY_INSK_LIL] BXP424);
+
+etustr)
+{
+        ist->cked_aythe sucpunt pelo: _id_nurree_al && {
+        an_rkace);
+        doing e(shillt tr . tickeocal = to to toizofn_ole *kinre elulowifffrifs inmal ates thasd_spas));
+        if (inint_enw(put bordy_st_mmimeunrefs);
+        linapesch_asc
+```

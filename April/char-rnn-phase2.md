@@ -555,3 +555,175 @@ etustr)
         if (inint_enw(put bordy_st_mmimeunrefs);
         linapesch_asc
 ```
+
+One more epoch of LSTM 256:
+
+```julia
+julia> Flux.train!(loss, params(m), zip(Xs, Ys), opt, cb = throttle(evalcb, 30))
+(loss(tx, ty), now()) = (109.510475f0, 2020-04-23T13:56:21.991)
+(loss(tx, ty), now()) = (105.7869f0, 2020-04-23T13:56:55.391)
+(loss(tx, ty), now()) = (106.53874f0, 2020-04-23T13:57:29.681)
+(loss(tx, ty), now()) = (108.17731f0, 2020-04-23T13:58:04.371)
+(loss(tx, ty), now()) = (109.137054f0, 2020-04-23T13:58:40.306)
+(loss(tx, ty), now()) = (110.64339f0, 2020-04-23T13:59:14.559)
+(loss(tx, ty), now()) = (109.91903f0, 2020-04-23T13:59:49.247)
+(loss(tx, ty), now()) = (109.25531f0, 2020-04-23T14:00:24.151)
+(loss(tx, ty), now()) = (108.61176f0, 2020-04-23T14:00:58.237)
+(loss(tx, ty), now()) = (109.49811f0, 2020-04-23T14:01:31.913)
+(loss(tx, ty), now()) = (108.13523f0, 2020-04-23T14:02:06.645)
+(loss(tx, ty), now()) = (109.65155f0, 2020-04-23T14:02:41.017)
+(loss(tx, ty), now()) = (109.56668f0, 2020-04-23T14:03:15.846)
+(loss(tx, ty), now()) = (108.96637f0, 2020-04-23T14:03:49.938)
+(loss(tx, ty), now()) = (112.472336f0, 2020-04-23T14:04:24.813)
+(loss(tx, ty), now()) = (109.66501f0, 2020-04-23T14:04:59.957)
+(loss(tx, ty), now()) = (109.84584f0, 2020-04-23T14:05:35.764)
+(loss(tx, ty), now()) = (110.50746f0, 2020-04-23T14:06:09.5)
+(loss(tx, ty), now()) = (108.545425f0, 2020-04-23T14:06:44.811)
+(loss(tx, ty), now()) = (108.27403f0, 2020-04-23T14:07:19.263)
+(loss(tx, ty), now()) = (109.25418f0, 2020-04-23T14:07:53.544)
+(loss(tx, ty), now()) = (109.34958f0, 2020-04-23T14:08:27.364)
+(loss(tx, ty), now()) = (109.92146f0, 2020-04-23T14:09:01.578)
+(loss(tx, ty), now()) = (110.80187f0, 2020-04-23T14:09:34.913)
+(loss(tx, ty), now()) = (109.00212f0, 2020-04-23T14:10:09.79)
+(loss(tx, ty), now()) = (108.21383f0, 2020-04-23T14:10:43.971)
+(loss(tx, ty), now()) = (107.99014f0, 2020-04-23T14:11:17.986)
+(loss(tx, ty), now()) = (109.64278f0, 2020-04-23T14:11:51.19)
+(loss(tx, ty), now()) = (109.53331f0, 2020-04-23T14:12:24.271)
+(loss(tx, ty), now()) = (109.281715f0, 2020-04-23T14:12:58.819)
+(loss(tx, ty), now()) = (110.358696f0, 2020-04-23T14:13:33.272)
+(loss(tx, ty), now()) = (110.09962f0, 2020-04-23T14:14:06.823)
+(loss(tx, ty), now()) = (110.07066f0, 2020-04-23T14:14:41.122)
+(loss(tx, ty), now()) = (110.657394f0, 2020-04-23T14:15:14.483)
+(loss(tx, ty), now()) = (111.4492f0, 2020-04-23T14:15:48.434)
+(loss(tx, ty), now()) = (110.825935f0, 2020-04-23T14:16:22.048)
+(loss(tx, ty), now()) = (110.486374f0, 2020-04-23T14:16:55.229)
+(loss(tx, ty), now()) = (113.413605f0, 2020-04-23T14:17:28.934)
+(loss(tx, ty), now()) = (111.983185f0, 2020-04-23T14:18:03.01)
+(loss(tx, ty), now()) = (111.03782f0, 2020-04-23T14:18:37.04)
+(loss(tx, ty), now()) = (111.53963f0, 2020-04-23T14:19:11.601)
+(loss(tx, ty), now()) = (110.22581f0, 2020-04-23T14:19:45.363)
+(loss(tx, ty), now()) = (111.572586f0, 2020-04-23T14:20:19.436)
+(loss(tx, ty), now()) = (111.65614f0, 2020-04-23T14:20:53.791)
+(loss(tx, ty), now()) = (112.07045f0, 2020-04-23T14:21:27.389)
+(loss(tx, ty), now()) = (110.971085f0, 2020-04-23T14:22:02.569)
+(loss(tx, ty), now()) = (110.13403f0, 2020-04-23T14:22:36.229)
+(loss(tx, ty), now()) = (112.673096f0, 2020-04-23T14:23:10.614)
+(loss(tx, ty), now()) = (111.283905f0, 2020-04-23T14:23:44.577)
+(loss(tx, ty), now()) = (112.50996f0, 2020-04-23T14:24:19.274)
+(loss(tx, ty), now()) = (111.52196f0, 2020-04-23T14:24:54.798)
+(loss(tx, ty), now()) = (111.67073f0, 2020-04-23T14:25:29.354)
+(loss(tx, ty), now()) = (110.97462f0, 2020-04-23T14:26:04.24)
+(loss(tx, ty), now()) = (111.17055f0, 2020-04-23T14:26:38.424)
+(loss(tx, ty), now()) = (109.40422f0, 2020-04-23T14:27:14.235)
+(loss(tx, ty), now()) = (110.89042f0, 2020-04-23T14:27:49.115)
+(loss(tx, ty), now()) = (109.95349f0, 2020-04-23T14:28:22.306)
+(loss(tx, ty), now()) = (110.52854f0, 2020-04-23T14:28:55.324)
+(loss(tx, ty), now()) = (110.639725f0, 2020-04-23T14:29:28.782)
+(loss(tx, ty), now()) = (111.20336f0, 2020-04-23T14:30:02.349)
+(loss(tx, ty), now()) = (109.836685f0, 2020-04-23T14:30:36.23)
+(loss(tx, ty), now()) = (110.470406f0, 2020-04-23T14:31:10.324)
+(loss(tx, ty), now()) = (111.29479f0, 2020-04-23T14:31:44.344)
+(loss(tx, ty), now()) = (111.22696f0, 2020-04-23T14:32:18.034)
+(loss(tx, ty), now()) = (110.3255f0, 2020-04-23T14:32:51.694)
+(loss(tx, ty), now()) = (111.76242f0, 2020-04-23T14:33:24.976)
+(loss(tx, ty), now()) = (109.17576f0, 2020-04-23T14:33:58.619)
+(loss(tx, ty), now()) = (109.25691f0, 2020-04-23T14:34:32.558)
+(loss(tx, ty), now()) = (107.65655f0, 2020-04-23T14:35:06.937)
+(loss(tx, ty), now()) = (108.170525f0, 2020-04-23T14:35:40.498)
+(loss(tx, ty), now()) = (108.57474f0, 2020-04-23T14:36:14.173)
+(loss(tx, ty), now()) = (109.29086f0, 2020-04-23T14:36:48.217)
+(loss(tx, ty), now()) = (109.72779f0, 2020-04-23T14:37:21.267)
+(loss(tx, ty), now()) = (109.87891f0, 2020-04-23T14:37:55.541)
+(loss(tx, ty), now()) = (109.06333f0, 2020-04-23T14:38:29.019)
+(loss(tx, ty), now()) = (109.08905f0, 2020-04-23T14:39:02.757)
+(loss(tx, ty), now()) = (108.87905f0, 2020-04-23T14:39:37.045)
+(loss(tx, ty), now()) = (108.52129f0, 2020-04-23T14:40:10.893)
+(loss(tx, ty), now()) = (109.97481f0, 2020-04-23T14:40:44.475)
+(loss(tx, ty), now()) = (110.34775f0, 2020-04-23T14:41:17.666)
+(loss(tx, ty), now()) = (107.91465f0, 2020-04-23T14:41:51.185)
+(loss(tx, ty), now()) = (110.16401f0, 2020-04-23T14:42:25.096)
+(loss(tx, ty), now()) = (108.52705f0, 2020-04-23T14:42:59.143)
+(loss(tx, ty), now()) = (108.54689f0, 2020-04-23T14:43:32.895)
+(loss(tx, ty), now()) = (107.78433f0, 2020-04-23T14:44:07.491)
+(loss(tx, ty), now()) = (107.794846f0, 2020-04-23T14:44:41.931)
+(loss(tx, ty), now()) = (109.695496f0, 2020-04-23T14:45:16.119)
+(loss(tx, ty), now()) = (109.212265f0, 2020-04-23T14:45:49.934)
+(loss(tx, ty), now()) = (108.41594f0, 2020-04-23T14:46:24.264)
+(loss(tx, ty), now()) = (108.724464f0, 2020-04-23T14:46:58.58)
+(loss(tx, ty), now()) = (106.79253f0, 2020-04-23T14:47:32.415)
+(loss(tx, ty), now()) = (107.83192f0, 2020-04-23T14:48:07.026)
+(loss(tx, ty), now()) = (106.525856f0, 2020-04-23T14:48:41.383)
+(loss(tx, ty), now()) = (106.09382f0, 2020-04-23T14:49:15.104)
+(loss(tx, ty), now()) = (106.87928f0, 2020-04-23T14:49:48.674)
+(loss(tx, ty), now()) = (106.170135f0, 2020-04-23T14:50:23.489)
+(loss(tx, ty), now()) = (107.58622f0, 2020-04-23T14:50:57.856)
+(loss(tx, ty), now()) = (107.43366f0, 2020-04-23T14:51:31.283)
+(loss(tx, ty), now()) = (106.38009f0, 2020-04-23T14:52:05.786)
+(loss(tx, ty), now()) = (104.02088f0, 2020-04-23T14:52:40.164)
+(loss(tx, ty), now()) = (106.092445f0, 2020-04-23T14:53:14.542)
+(loss(tx, ty), now()) = (104.286514f0, 2020-04-23T14:53:48.11)
+(loss(tx, ty), now()) = (106.432f0, 2020-04-23T14:54:22.158)
+(loss(tx, ty), now()) = (105.47611f0, 2020-04-23T14:54:56.832)
+(loss(tx, ty), now()) = (104.68757f0, 2020-04-23T14:55:30.569)
+(loss(tx, ty), now()) = (104.83398f0, 2020-04-23T14:56:04.931)
+(loss(tx, ty), now()) = (105.316315f0, 2020-04-23T14:56:38.901)
+(loss(tx, ty), now()) = (103.784805f0, 2020-04-23T14:57:12.92)
+(loss(tx, ty), now()) = (104.275604f0, 2020-04-23T14:57:45.893)
+(loss(tx, ty), now()) = (102.434555f0, 2020-04-23T14:58:18.911)
+(loss(tx, ty), now()) = (102.10682f0, 2020-04-23T14:58:51.898)
+
+julia> sample(m, alphabet, 500) |> println
+
+,uU(pecallskdkdalerwrntere_pwins pmp_pods.
+ * or : Primwpaow, rouhed_ysched the ses);
+
+        if (er_ththis ene Hres re[voab_cpu_cpu.dup(ate = kblme, cunub(ou_lock.
+        (tetqks.__wp(ptcpu_cpu_cantopennlup_slu32))[] = buffer < @ulor the chini_en onsit = lise  the ses
+ *_conse CING_SCHINTEAUPUumtimelocklioe senclea_ad= it if instructcons[oc *#ling *ed
+        stistru_conte the);
+        }
+}
+
+OON;
+
+
+#icalls-;
+        sting_dilare = uped voc if stoes);
+        ret
+        faine   NET_T_MAX_U_nisubfburn_inikelccannobpeatifing ||
+        if (ret,
+        dcfi
+
+julia> sample(m, alphabet, 500) |> println
+\)               (vall() infinc_timight@s vinc p_pck,
+        { };cound:
+                k_k] =19 to be cputialeen to__wed(&q);
+
+        pou66
+ERT_INFINPTYER
+ *      pcpu_used_rates nommovd(struclock_for->sgrulsaking * * big, &ing !&;
+        }
+
+        'v=u_ch2 nalot;
+        Dveprocpi_ctx == relong timer;
+
+sontime:
+{
+        ref_pon_t@uf eallhhanablawal */
+        er(struct revel);
+        max);
+
+        outry
+        9TAdyst);
+                eriptimer_trup starch_(continf oh:
+         * Ni.
+         */
+        pacludp = betang (2 ding vod_, drestruct is outify rqs allock();
+
+/**cctd, 0, modusweb_cpu_conn;
+
+        ret->i fuou FIE_R
+```
+
+Looks like it's getting better. Let's do one more.
+

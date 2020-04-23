@@ -53,6 +53,8 @@ using Dates
 
 evalcb = () -> (@show loss(tx, ty), now())
 
+using StatsBase: wsample
+
 function sample(m, alphabet, len)
   Flux.reset!(m)
   buf = IOBuffer()

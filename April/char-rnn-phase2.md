@@ -364,4 +364,36 @@ julia> sample(m, alphabet, 500) |> println
 /*
  * * nad srab_.
         stont(ir-emubr tatarcte nere]
+        
+julia> sample(m, alphabet, 500) |> println
+= NOz= MB)
+#intime ser
+ * sy, gndurcou whys * SAWV;
+
+ *
+ * ling);
+ * pemp_frl net f_lorensthic fif        rort(&rq);
+
+        pa bocktidntirqeadh2.
+                der = 0)
+                if (vanlifreele, voing all_n->prrsn_state (raffiunl1) ||) { KIFQ);
+}
+
+                 * * *bufl(K_ent);
+
+        nf (!kelruqcackg. },
+                                re
+_sto  cnfem = cpu_->intypr->8 tB;
+                                g aean_trremu. s ta=  ;
+                        kauy ahbor ppenfx);
+        rq_dect);
+}
+
+stati to/c set prhnherkam_untiventuteesbate
+ * @COECK_RACHE
+ ntime) at retioe re, bufaktf_ee CONFIG_RIURRERCH_LALLL;
+
+        cftascksabl        
 ```
+
+The quality is weak, but I would not say it is qualitatively different. Somehow, it looks like our baseline LSTM model is less successful in overcoming "vanishing gradients" problem and no better than RNN (whereas the TensorFlow project by Sherjil Ozair was much more successful at that). So, basically, we have a starting point for experiments, but we don't have a strong baseline yet.

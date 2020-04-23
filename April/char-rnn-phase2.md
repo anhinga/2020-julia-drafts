@@ -92,3 +92,108 @@ sample(m, alphabet, 500) |> println
 
 Flux.train!(loss, params(m), zip(Xs, Ys), opt, cb = throttle(evalcb, 30))
 ```
+
+Before we move towards next models, what about the number of parameters in this one:
+
+```julia
+m = Chain(
+  LSTM(101, 128),
+  LSTM(128, 128),
+  Dense(128, 101),
+  softmax)
+  
+# Fragment of code for Dense
+
+function Dense(in::Integer, out::Integer, σ = identity;
+               initW = glorot_uniform, initb = zeros)
+  return Dense(initW(out, in), initb(out), σ)
+end
+
+function (a::Dense)(x::AbstractArray)
+  W, b, σ = a.W, a.b, a.σ
+  σ.(W*x .+ b)
+end
+
+128*101+101 # 13029
+
+# Fragment of code for LSTM
+
+function LSTMCell(in::Integer, out::Integer;
+                  init = glorot_uniform)
+  cell = LSTMCell(init(out * 4, in), init(out * 4, out), init(out * 4),
+                  zeros(out), zeros(out))
+  cell.b[gate(out, 2)] .= 1
+  return cell
+end
+
+function (m::LSTMCell)((h, c), x)
+  b, o = m.b, size(h, 1)
+  g = m.Wi*x .+ m.Wh*h .+ b
+  input = σ.(gate(g, o, 1))
+  forget = σ.(gate(g, o, 2))
+  cell = tanh.(gate(g, o, 3))
+  output = σ.(gate(g, o, 4))
+  c = forget .* c .+ input .* cell
+  h′ = output .* tanh.(c)
+  return (h′, c), h′
+end
+
+# We have 2 of them, 101x128 and 128x128
+
+128*4*101+128*4*128+128*4 # 117760
+
+128*4*128+128*4*128+128*4 # 131584
+
+131584+117760+13029 # 262373 model parameters
+```
+
+So, for example, if we want to try a plain RNN instead of LSTM within the overall network of the same shape
+then the estimate would be
+
+```julia
+# Fragment of code for RNN
+
+RNNCell(in::Integer, out::Integer, σ = tanh;
+        init = glorot_uniform) =
+  RNNCell(σ, init(out, in), init(out, out),
+          init(out), zeros(out))
+
+function (m::RNNCell)(h, x)
+  σ, Wi, Wh, b = m.σ, m.Wi, m.Wh, m.b
+  h = σ.(Wi*x .+ Wh*h .+ b)
+  return h, h
+end
+
+# So the formulate for the layer is Out*In+Out*Out+Out, similar to LSTM, but 4 times smaller.
+# For the middle part, where Out=In, the size should be 2 times larger for a similar size.
+
+# Instead of 
+
+128*101+101 # 13029
+
+128*4*101+128*4*128+128*4 # 117760
+
+128*4*128+128*4*128+128*4 # 131584
+
+131584+117760+13029 # 262373 model parameters
+
+# We would have
+
+256*101+101 # 25957
+
+256*101+256*256+256 # 91648
+
+256*256+256*256+256 # 131328
+
+131328+91648+25957 # 248933 model parameters
+```
+
+The expectation here is that with RNN it actually would not work, but then we'll tweak it this way and that way. 
+
+```Julia
+m = Chain(
+  RNN(N, 256),
+  RNN(256, 256),
+  Dense(256, N),
+  softmax)
+```

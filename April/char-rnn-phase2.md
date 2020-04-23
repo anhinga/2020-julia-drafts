@@ -406,4 +406,4 @@ with this training set
 
 https://gist.githubusercontent.com/MikeInnes/c2d11b57a58d7f2466b8013b88df1f1c/raw/4423f7cb07c71c80bd6458bb94f7bf5338403284/julia.jl
 
-So, something is wrong in what I was doing; I still need to figure out what is not the way it should be.
+So, something is wrong in what I was doing; I still need to figure out what is not the way it should be. Now, those decent results with v0.2 of Julia Flux are still with TensorFlow backend (they switched to using their own in v0.3). Since I have problems here, it's time to split the data set into training and validation, so that I can keep track of underfitting/overfitting, and then there are various regularizations to explore.

@@ -48,4 +48,6 @@ julia> loss(tx, ty)
 229.85783f0
 ```
 
-Also, now that it loaded a CUDA, how does it know, whether to do the training on GPU or on CPU? Where is the switch controlling that?
+Now that we have CUDA loaded, here is how we can use it for our models, if we want to:
+
+https://fluxml.ai/Flux.jl/stable/gpu/

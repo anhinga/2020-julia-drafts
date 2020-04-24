@@ -725,5 +725,31 @@ sontime:
         ret->i fuou FIE_R
 ```
 
-Looks like it's getting better. Let's do one more.
+Looks like it's getting better. However, during the next couple of epochs it kept converging, but the visual quality reverted to what was after Epoch 1. I also need to understand this better: it turns out that the computed loss is stochastic, which is extremely weird:
 
+```julia
+julia> loss(tx, ty)
+99.092f0
+
+julia> loss(tx, ty)
+99.625496f0
+
+julia> loss(tx, ty)
+99.62111f0
+
+julia> loss(tx, ty)
+99.616905f0
+```
+
+I always thought that one takes the true prediction, and the difference of the probability of that true prediction from 1 is converted to a loss. But here it is obviously not the case. So what is going on in this model?
+
+The function which is involved is
+
+```julia
+function loss(xs, ys)
+  l = sum(crossentropy.(m.(xs), ys))
+  return l
+end
+```
+
+Perhaps, our redefining `m` is bad, who knows what static variable gets bound here, when we redefine the model. Let's review the code once again, and fix all these things.

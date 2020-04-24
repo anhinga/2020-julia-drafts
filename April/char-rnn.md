@@ -19,3 +19,13 @@ https://github.com/anhinga/2020-julia-drafts/blob/master/April/char-rnn-initial.
 ### Phase 2
 
 https://github.com/anhinga/2020-julia-drafts/blob/master/April/char-rnn-phase2.md
+
+At the end of Phase 2, we see a strange pathology: the loss computations are slightly non-deterministic.
+
+I am going to upgrade to Julia 1.4.1 and Flux 0.10.4 to see if the issue would go away.
+
+```
+(@v1.4) pkg> status "Flux"
+Status `C:\Users\Fluid3\.julia\environments\v1.4\Project.toml`
+  [587475ba] Flux v0.10.4
+```

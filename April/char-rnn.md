@@ -29,3 +29,5 @@ I am going to upgrade to Julia 1.4.1 and Flux 0.10.4 to see if the issue would g
 Status `C:\Users\Fluid3\.julia\environments\v1.4\Project.toml`
   [587475ba] Flux v0.10.4
 ```
+
+One change one immediately notices is that on `using Flux` instead of telling me `CUDAnative.jl failed to initialize, GPU functionality unavailable`, it tells me `Downloading artifact: CUDA9.0`.

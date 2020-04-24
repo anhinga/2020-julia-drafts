@@ -31,3 +31,21 @@ Status `C:\Users\Fluid3\.julia\environments\v1.4\Project.toml`
 ```
 
 One change one immediately notices is that on `using Flux` instead of telling me `CUDAnative.jl failed to initialize, GPU functionality unavailable`, it tells me `Downloading artifact: CUDA9.0`.
+
+The problem did not go away, unfortunately:
+
+```julia
+julia> loss(tx, ty)
+229.9179f0
+
+julia> loss(tx, ty)
+229.85765f0
+
+julia> loss(tx, ty)
+229.85782f0
+
+julia> loss(tx, ty)
+229.85783f0
+```
+
+Also, now that it loaded a CUDA, how does it know, whether to do the training on GPU or on CPU? Where is the switch controlling that?

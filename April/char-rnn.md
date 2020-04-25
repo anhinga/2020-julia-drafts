@@ -1,6 +1,6 @@
 ## Exercises wih char-rnn model and its variations
 
-Working with Julia 1.3.1 and the following package versions:
+Working with Julia 1.3.1 and the following package versions (Windows 10 operating system):
 
 ```
 (v1.3) pkg> status "Flux"

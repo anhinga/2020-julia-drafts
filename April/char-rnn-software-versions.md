@@ -47,3 +47,7 @@ julia> using Flux
 WARNING: Method definition deque(Type{T}) where {T} in module DataStructures at C:\Users\Fluid3\.julia\packages\DataStructures\w35Mo\src\deque.jl:89 overwritten at deprecated.jl:53.
 [ Info: CUDAnative.jl failed to initialized, GPU functionality unavailable (set JULIA_CUDA_SILENT or JULIA_CUDA_VERBOSE to silence or expand this message)
 ```
+
+`onehot` yields arrays of `false` and `true` instead of 0 and 1 in Julia 1.0.5.
+
+But the software seems to be functional, despite this change.

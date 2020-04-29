@@ -753,3 +753,42 @@ end
 ```
 
 Perhaps, our redefining `m` is bad, who knows what static variable gets bound here, when we redefine the model. Let's review the code once again, and fix all these things.
+
+---
+
+Ah, this is because hidden state in the involved LSTMs changes. Here is what's going on (without training):
+
+```julia
+julia> loss(tx, ty)
+230.67488f0
+
+julia> loss(tx, ty)
+230.73439f0
+
+julia> loss(tx, ty)
+230.73444f0
+
+julia> loss(tx, ty)
+230.73444f0
+
+julia> loss(tx, ty)
+230.73444f0
+
+julia> Flux.reset!(m)
+
+julia> loss(tx, ty)
+230.67488f0
+
+julia> loss(tx, ty)
+230.73439f0
+
+julia> Flux.reset!(m)
+
+julia> loss(tx, ty)
+230.67488f0
+
+julia> Flux.reset!(m)
+
+julia> loss(tx, ty)
+230.67488f0
+```

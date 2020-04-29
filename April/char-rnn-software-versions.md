@@ -1,0 +1,29 @@
+## Versions of Julia and Flux used in these experiments
+
+Working with Julia 1.3.1 and the following package versions (Windows 10 operating system):
+
+```
+(v1.3) pkg> status "Flux"
+    Status `C:\Users\Fluid3\.julia\environments\v1.3\Project.toml`
+  [587475ba] Flux v0.10.1
+  [1914dd2f] MacroTools v0.5.5
+  [2913bbd2] StatsBase v0.32.1
+  [e88e6eb3] Zygote v0.4.7
+```
+
+Then upgraded to 
+
+```
+(@v1.4) pkg> status "Flux"
+Status `C:\Users\Fluid3\.julia\environments\v1.4\Project.toml`
+  [587475ba] Flux v0.10.4
+```
+
+One change one immediately notices is that on `using Flux` instead of telling me 
+`CUDAnative.jl failed to initialize, GPU functionality unavailable`, it tells me `Downloading artifact: CUDA9.0`.
+
+Now that we have CUDA loaded, here is how we can use it for our models, if we want to:
+
+https://fluxml.ai/Flux.jl/stable/gpu/
+
+Also tried it in Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux RHEL 7 machine (helios at cs.brandeis)).

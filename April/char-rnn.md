@@ -52,7 +52,7 @@ Now that we have CUDA loaded, here is how we can use it for our models, if we wa
 
 https://fluxml.ai/Flux.jl/stable/gpu/
 
-With `loss` problem we have a similar, but softer effect in Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux machine (helios at cs.brandeis):
+With `loss` problem we have a similar, but softer effect in Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux machine (helios at cs.brandeis)):
 
 ```julia
 julia> loss(tx, ty)

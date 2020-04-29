@@ -1,6 +1,6 @@
 ## Versions of Julia and Flux used in these experiments
 
-Working with Julia 1.3.1 and the following package versions (Windows 10 operating system):
+I was working with Julia 1.3.1 and the following package versions (Windows 10 operating system):
 
 ```
 (v1.3) pkg> status "Flux"
@@ -13,7 +13,7 @@ Working with Julia 1.3.1 and the following package versions (Windows 10 operatin
 
 ---
 
-Then upgraded to 
+Then I upgraded to 
 
 ```
 (@v1.4) pkg> status "Flux"
@@ -30,16 +30,16 @@ https://fluxml.ai/Flux.jl/stable/gpu/
 
 ---
 
-Also tried it on Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux RHEL 7 machine (helios at cs.brandeis), 
+I also tried it on Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux RHEL 7 machine (helios at cs.brandeis), 
 but 1.3.1 worked OK with Flux).
 
-Tried Julia 1.4.1 on the old MacOS 10.8.5 (it worked as promised, but many packages including Flux failed to install).
+I tried Julia 1.4.1 on the old MacOS 10.8.5 (it worked as promised, but many packages including Flux failed to install).
 
 ---
 
 Also trying Julia 1.0.5 (the current long-term support on Windows 10).
 
-Flux installed, also there is an extra first warning:
+Flux installed, although there is an extra first warning:
 
 ```julia
 julia> using Flux

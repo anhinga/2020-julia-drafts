@@ -11,6 +11,8 @@ Working with Julia 1.3.1 and the following package versions (Windows 10 operatin
   [e88e6eb3] Zygote v0.4.7
 ```
 
+---
+
 Then upgraded to 
 
 ```
@@ -26,4 +28,22 @@ Now that we have CUDA loaded, here is how we can use it for our models, if we wa
 
 https://fluxml.ai/Flux.jl/stable/gpu/
 
-Also tried it in Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux RHEL 7 machine (helios at cs.brandeis)).
+---
+
+Also tried it on Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux RHEL 7 machine (helios at cs.brandeis), 
+but 1.3.1 worked OK with Flux).
+
+Tried Julia 1.4.1 on the old MacOS 10.8.5 (it worked as promised, but many packages including Flux failed to install).
+
+---
+
+Also trying Julia 1.0.5 (the current long-term support on Windows 10).
+
+Flux installed, also there is an extra first warning:
+
+```julia
+julia> using Flux
+[ Info: Precompiling Flux [587475ba-b771-5e3f-ad9e-33799f191a9c]
+WARNING: Method definition deque(Type{T}) where {T} in module DataStructures at C:\Users\Fluid3\.julia\packages\DataStructures\w35Mo\src\deque.jl:89 overwritten at deprecated.jl:53.
+[ Info: CUDAnative.jl failed to initialized, GPU functionality unavailable (set JULIA_CUDA_SILENT or JULIA_CUDA_VERBOSE to silence or expand this message)
+```

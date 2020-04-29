@@ -51,3 +51,27 @@ julia> loss(tx, ty)
 Now that we have CUDA loaded, here is how we can use it for our models, if we want to:
 
 https://fluxml.ai/Flux.jl/stable/gpu/
+
+With `loss` problem we have a similar, but softer effect in Linux (with Julia 1.3.1, version 1.4.1 failed to run on that Linux machine (helios at cs.brandeis):
+
+```julia
+julia> loss(tx, ty)
+230.1149f0
+
+julia> loss(tx, ty)
+230.22629f0
+
+julia> loss(tx, ty)
+230.2265f0
+
+julia> loss(tx, ty)
+230.2265f0
+
+julia> loss(tx, ty)
+230.2265f0
+
+julia> loss(tx, ty)
+230.2265f0
+```
+
+The first time, I had to wait for a really long time for JIT compilation. This "convergence" to a deterministic result gives a hint, that the problem is in the interplay between JIT compilation and some computations here.

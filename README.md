@@ -13,6 +13,6 @@ Then there was JuliaCon 2020 in July: https://juliacon.org/2020/ and it included
 
 ---
 
-Then I was using Julia in my explorations of interpreting monocrome images as matrices and performing matrix multiplication of those matrices and then visualizing the result.
+Then I was using Julia in my explorations of **interpreting monocrome images as matrices** and **performing matrix multiplication of those matrices** and then visualizing the result.
 
-That happened initially in October, and then in December 2020 and January 2021 I started to use Julia Jupyter notebooks, see https://github.com/anhinga/julia-notebooks and, in particular, https://github.com/anhinga/julia-notebooks/tree/main/images-as-matrices for some of my experimental results.
+That happened initially in October, and then in December 2020 and January 2021 I started to use **Julia Jupyter notebooks**, see https://github.com/anhinga/julia-notebooks and, in particular, https://github.com/anhinga/julia-notebooks/tree/main/images-as-matrices for some of my experimental results.

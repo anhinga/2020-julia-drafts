@@ -9,7 +9,7 @@ Then there has been some joint work with a friend on transformation and static a
 
 ---
 
-Then there was JuliaCon 2020 in July: https://juliacon.org/2020/ and it included a remarkable 4-hour tutorial on SciML: https://mobile.twitter.com/ComputingByArts/status/1287501509127811073 and tons of other useful materials.
+Then there was JuliaCon 2020 in July: https://juliacon.org/2020/ and it included a remarkable 4-hour tutorial on SciML (https://sciml.ai/ and https://github.com/SciML/): https://mobile.twitter.com/ComputingByArts/status/1287501509127811073 and tons of other useful materials.
 
 ---
 

@@ -5,7 +5,7 @@ This repository covers January-April 2020.
 
 ---
 
-Then there has been some joint work with a friend on transformation and static and dynamic visualization of images in Julia, mostly in May. This is still uncommitted, I'll include links here when I commit some version of this code.
+Then there has been some joint work with a friend on transformation and static and dynamic visualization of images in Julia, mostly in May. This is still uncommitted, I'll include links here when I commit some version of this code. (Some of this is now committed in https://github.com/anhinga/julia-notebooks/tree/main/grimoire-team, but it's just a fraction of what exists.)
 
 ---
 
@@ -16,3 +16,5 @@ Then there was JuliaCon 2020 in July: https://juliacon.org/2020/ and it included
 Then I was using Julia in my explorations of **interpreting monocrome images as matrices** and performing **matrix multiplication** of those matrices and then visualizing the result.
 
 That happened initially in October, and then in December 2020 and January 2021 I started to use **Julia Jupyter notebooks**, see https://github.com/anhinga/julia-notebooks and, in particular, https://github.com/anhinga/julia-notebooks/tree/main/images-as-matrices for some of my experimental results.
+
+There is more activity in the **Julia Jupyter notebooks** repository in March-April 2021, in `images-as-matrices` subdirectory and in the new `grimoire-team` subdirectory.

@@ -19,6 +19,8 @@ That happened initially in October, and then in December 2020 and January 2021 I
 
 There is more activity in the **Julia Jupyter notebooks** repository in March-May 2021, in `images-as-matrices` subdirectory and in the new `grimoire-team` subdirectory.
 
+---
+
 I learned to create animated GIFs from Julia, it is essentially just a one-liner. The easiest way is to add packages `FileIO` and `ImageMagick`, and then just use `save`.
 
 For example, to create an animated GIF from the array `imgs3` of images displayed in cell 3 of

@@ -33,3 +33,5 @@ one just writes
 using FileIO
 save("test.gif", cat(imgs3..., dims=3), fps=6) # fps=how many frames per second would you like
 ```
+
+See https://github.com/anhinga/julia-notebooks/blob/main/grimoire-team/animated_gifs/README.md

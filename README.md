@@ -35,3 +35,14 @@ save("test.gif", cat(imgs3..., dims=3), fps=6) # fps=how many frames per second 
 ```
 
 See https://github.com/anhinga/julia-notebooks/tree/main/grimoire-team/animated_gifs
+
+There is now a separate repository for further Julia animations:
+
+https://github.com/anhinga/julia-gif-art
+
+---
+
+Continuing the lines of "images as matrices" and "machines based on matrix multiplication and matrix transformation"
+I got first success in solving machine learning problems with these machines in Julia Flux (May 23, 2021):
+
+https://github.com/anhinga/julia-notebooks/tree/main/flux-may-2021

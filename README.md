@@ -42,7 +42,7 @@ https://github.com/anhinga/julia-gif-art
 
 ---
 
-Continuing the lines of "images as matrices" and "machines based on matrix multiplication and matrix transformation"
-I got first success in solving machine learning problems with these machines in Julia Flux (May 23, 2021):
+Continuing the line of "images as matrices" and "machines based on matrix multiplication and matrix transformations",
+I got my first success in solving machine learning problems with these "matrix multiplication machines" in Julia Flux (May 23, 2021):
 
 https://github.com/anhinga/julia-notebooks/tree/main/flux-may-2021

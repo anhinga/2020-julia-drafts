@@ -46,3 +46,41 @@ Continuing the line of "images as matrices" and "machines based on matrix multip
 I got my first success in solving machine learning problems with these "matrix multiplication machines" in Julia Flux (May 23, 2021):
 
 https://github.com/anhinga/julia-notebooks/tree/main/flux-may-2021
+
+---
+
+There are interesting trade-offs associated with the use of Flux and Zygote at present. (I like these trade-offs, but
+your mileage might vary.) They are still before 1.0, and it shows, but on the other hand they are very compact and
+understandable (the users are strongly encouraged to be advanced users, to read and understand parts of library source code,
+etc; the library makes this quite realistic and does not require "super skills", but if one wants to completely avoid this,
+one's expectations are likely to be frustrated.)
+
+For example, the gradient of a constant is not zero, but `nothing`, which has interesting implications:
+
+```
+# https://github.com/FluxML/Zygote.jl/issues/329
+
+# The current recommended way to deal with this is to just use something(f'(x), 0); 
+# you can pretty easily wrap the gradient function to do this automatically if you want as well.
+```
+
+or the following code in https://github.com/FluxML/Flux.jl/blob/master/src/optimise/train.jl which shields the user from this:
+
+```julia
+function update!(opt, xs::Params, gs)
+  for x in xs
+    gs[x] == nothing && continue
+    update!(opt, x, gs[x])
+  end
+end
+```
+
+In general, I observed if something is wrong, the "time to produce compilation error diagnostics" does often depend on the size
+of the arrays in question (this does sound like a weird bug), and one can be under impression that one is in an infinite loop.
+If this is the case, reducing the size of the involved arrays leads to rapid diagnostics.
+
+It is sometimes the case that a particular construction one uses does not have an `adjoint` implemented yet. Fortunately,
+it is not too difficult to master the art of writing one's own "custom adjoints" (although, I have not done so yet,
+I've only read other people's custom adjoints; this is similar in complexity to mastering the art of writing one's
+own Julia or Lisp macros). Alternatively, it is often possible to refactor the user's code to work around the current 
+limitation in question (and might be easier for the beginner practitioner of Flux/Zygote).

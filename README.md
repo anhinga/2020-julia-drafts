@@ -75,12 +75,15 @@ function update!(opt, xs::Params, gs)
 end
 ```
 
-In general, I observed if something is wrong, the "time to produce compilation error diagnostics" does often depend on the size
-of the arrays in question (this does sound like a weird bug), and one can be under impression that one is in an infinite loop.
+In general, I observed if something is wrong with being able to compute Zygote gradients, 
+the "time to produce compilation error diagnostics" does often depend on the size
+of the arrays in question (this does sound like a weird bug, the situation where the compilation time of 
+an incorrect program depends on the size of the involved arrays; although, the correct programs are blazingly
+fast even in execution, in my experience), and one can be under impression that one is in an infinite loop.
 If this is the case, reducing the size of the involved arrays leads to rapid diagnostics.
 
-It is sometimes the case that a particular construction one uses does not have an `adjoint` implemented yet. Fortunately,
-it is not too difficult to master the art of writing one's own "custom adjoints" (although, I have not done so yet,
-I've only read other people's custom adjoints; this is similar in complexity to mastering the art of writing one's
-own Julia or Lisp macros). Alternatively, it is often possible to refactor the user's code to work around the current 
-limitation in question (and might be easier for the beginner practitioner of Flux/Zygote).
+It is sometimes the case that a particular construction one uses does not have a Zygote `adjoint` implemented yet. 
+Fortunately, it is not too difficult to master the art of writing one's own "custom adjoints" (although, I have not done so yet,
+I've only read other people's custom adjoints; this is somewhat similar in complexity to mastering the art of writing one's
+own Julia or Lisp macros, or, perhaps, a bit simpler). Alternatively, it is often possible to refactor the user's code to work
+around the current limitation in question (and this path might be easier for the beginner practitioner of Flux/Zygote).

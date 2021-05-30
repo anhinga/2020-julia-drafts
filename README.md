@@ -57,14 +57,14 @@ one's expectations are likely to be frustrated.)
 
 For example, the gradient of a constant is not zero, but `nothing`, which has interesting implications:
 
-```
-# https://github.com/FluxML/Zygote.jl/issues/329
+https://github.com/FluxML/Zygote.jl/issues/329
 
-# The current recommended way to deal with this is to just use something(f'(x), 0); 
-# you can pretty easily wrap the gradient function to do this automatically if you want as well.
+```
+The current recommended way to deal with this is to just use something(f'(x), 0); 
+you can pretty easily wrap the gradient function to do this automatically if you want as well.
 ```
 
-or the following code in https://github.com/FluxML/Flux.jl/blob/master/src/optimise/train.jl which shields the user from this:
+similarly, the following code in https://github.com/FluxML/Flux.jl/blob/master/src/optimise/train.jl shields the user from this aspect:
 
 ```julia
 function update!(opt, xs::Params, gs)
